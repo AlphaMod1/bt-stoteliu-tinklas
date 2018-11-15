@@ -4,9 +4,9 @@ import java.util.List;
 
 import lt.baltictalents.stoteliutinklas.data.beans.Station;
 public class HardCodedDb {
-	private List<Station> stoteles;
+	public List<Station> stoteles;
 	
-	private static List<Station> createDb() {
+	public static List<Station> createDb() {
 		List<Station> stoteles = new ArrayList<Station>(1260);
 		stoteles.add(new Station("Vaikų ligoninė", "25.2807679", "54.7553245",
 				new String[]{"Autobusas 2G: Stotis - Santariškės", "Autobusas 48 Santariškės - Laisvės pr. - Šeškinė", "Autobusas 75 Pilaitė - S. Stanevičiaus g. - Santariškės"}));
