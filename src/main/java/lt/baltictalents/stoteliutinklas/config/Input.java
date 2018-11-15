@@ -8,7 +8,7 @@ public class Input {
 
 	private static double temp;
 	static Scanner reader = new Scanner(System.in);
-	public static double rasyk() {
+	public static double rasykOfFindNear() {
 
 		while(true) {
 		String Ats;

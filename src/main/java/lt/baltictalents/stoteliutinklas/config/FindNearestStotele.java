@@ -15,8 +15,8 @@ public class FindNearestStotele {
 		HardCodedDb db = new HardCodedDb();
 		
 		double latA, lonA;
-		lonA = input.rasyk();
-		latA = input.rasyk();
+		lonA = input.rasykOfFindNear();
+		latA = input.rasykOfFindNear();
 		input.reader.close();
 		
 		double[] list = new double[db.stoteles.size()];
