@@ -4,8 +4,7 @@ package lt.baltictalents.stoteliutinklas.config;
 //import org.springframework.boot.autoconfigure.SpringBootApplication;
 //import org.springframework.context.annotation.ComponentScan;
 
-import kodas.FindByName;
-import kodas.FindNearestStotele;;
+import kodas.*;
 
 //@SpringBootApplication
 //@ComponentScan(
@@ -14,11 +13,18 @@ import kodas.FindNearestStotele;;
 public class Application {
 
     public static void main(String[] args) {
-    	FindByName findbyname = new FindByName(); //Done
-    	FindNearestStotele findStot = new FindNearestStotele(); // Work In Progress
     	
-    	findStot.FindNearestStot();
-    	//findbyname.FindByN();
+    	
+    	FindByName FBN = new FindByName(); //Done
+    	FindNearestStotele FNS = new FindNearestStotele(); // Work In Progress
+    	CoordinatesToStops CTS = new CoordinatesToStops(); //Done
+    	NameToStops NTS = new NameToStops();// Work In Progress
+    	
+    	//FNS.FindNearestStot();
+    	//FBN.FindByN();
+    	//CTS.coordinatesTostops();
+    	NTS.nametostops();
+    	
     	
        // SpringApplication.run(new Class[] { Application.class }, args);
     }

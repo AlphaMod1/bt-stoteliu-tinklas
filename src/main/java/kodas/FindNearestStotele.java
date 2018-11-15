@@ -16,14 +16,14 @@ public class FindNearestStotele {
 		HardCodedDb db = new HardCodedDb();
 		
 		double latA, lonA;
-		lonA = input.rasykOfFindNear();
-		latA = input.rasykOfFindNear();
+		lonA = input.GetCoord(true);
+		latA = input.GetCoord(false);
 		input.reader.close();
 		
-		double[] list = new double[db.stoteles.size()];
+		double[] list = new double[db.getStoteles().size()];
 		
 		
-		for(int i = 0; i < db.stoteles.size(); i++) {
+		for(int i = 0; i < db.getStoteles().size(); i++) {
 		double tempLat = 0;	
 		double tempLon = 0;
 		tempLat = Double.parseDouble(db.getStoteles().get(i).getLatitude());
@@ -34,7 +34,7 @@ public class FindNearestStotele {
 		System.out.println();
 		int index = getSmallest(list);
 		System.out.println(index);
-		System.out.println("Artimiausia stotelë: "+db.stoteles.get(index).getName());
+		System.out.println("Artimiausia stotelë: "+db.getStoteles().get(index).getName());
 		
 		
 

@@ -8,11 +8,20 @@ public class Input {
 
 	private static double temp;
 	static Scanner reader = new Scanner(System.in);
-	public static double rasykOfFindNear() {
+	
+	public static double GetCoord(boolean Alte) {
 
 		while(true) {
 		String Ats;
-		System.out.println("Enter a number: ");
+		if(Alte) {
+			System.out.println("Enter Latitude:");
+		}
+		else if(!Alte) {
+			System.out.println("Enter Longitude:");
+		}
+		else {
+			System.out.println("Error: Crash on input.java");
+		}
 		Ats = reader.next();
 		
 		try{
@@ -25,6 +34,14 @@ public class Input {
 		}
 		
 		return temp;
+	}
+	
+	
+	public static String GetNameIn() {
+		String NameIn = "No Name";
+		System.out.println("Enter stop name: ");
+		NameIn = reader.next();
+		return NameIn;
 	}
 	
 }
