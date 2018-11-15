@@ -29,7 +29,7 @@ public class FindNearestStotele {
 		tempLat = Double.parseDouble(db.getStoteles().get(i).getLatitude());
 		tempLon = Double.parseDouble(db.getStoteles().get(i).getLongtitute());
 		list[i]=(distance(latA,lonA,tempLat,tempLon,"K"));
-		System.out.println(i+") "+list[i]+"km");
+		System.out.println(i+") "+roundas(list[i],2)+"km");
 		}
 		System.out.println();
 		int index = getSmallest(list);
@@ -61,7 +61,7 @@ public class FindNearestStotele {
 				
 			}
 			
-			dist = roundas(dist, 5);
+			//dist = roundas(dist, 5);
 			
 			return (dist);
 		}
