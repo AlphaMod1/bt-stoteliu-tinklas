@@ -1,9 +1,10 @@
-package lt.baltictalents.stoteliutinklas.config;
+package kodas;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
@@ -35,6 +36,8 @@ public class FindNearestStotele {
 		System.out.println(index);
 		System.out.println("Artimiausia stotelë: "+db.stoteles.get(index).getName());
 		
+		
+
 	}
 	
 	

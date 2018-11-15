@@ -1,4 +1,4 @@
-package lt.baltictalents.stoteliutinklas.config;
+package kodas;
 
 import java.util.Scanner;
 
