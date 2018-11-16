@@ -12,23 +12,33 @@ public class NameToStops {
 		HardCodedDb db = new HardCodedDb();
 		String Name = "";
 		
-		//Name = input.GetNameIn();
 		
-		String test1= JOptionPane.showInputDialog("A:");
-		Name = test1;
 		
-		System.out.println(Name);
-		String temp; boolean TEST = false;
+		Name = input.GetNameIn();
+		
+		
+		int rastosStotelesMarsrutuKiekis;
+		boolean found = false;
+		
 		
 		for(int i = 0; i < db.getStoteles().size(); i++) {
-			temp = db.getStoteles().get(i).getName();
-			if(temp == Name) {
-				System.out.println("Yes"+i);
-				TEST = true;
+			if(Name.equalsIgnoreCase(db.getStoteles().get(i).getName())) {
+				rastosStotelesMarsrutuKiekis = db.getStoteles().get(i).getRoutes().length;
+				
+				for(int j = 0; j < rastosStotelesMarsrutuKiekis; j++) {
+					 
+				System.out.println(db.getStoteles().get(i).getRoutes()[j]);
+					
+				}
+				
+				found = true;
+				break;
 			}
-		
 		}
-		System.out.println(TEST);
+		if(!found) {
+			System.out.println("No stations found");
+		}
+		
 	}
 
 }
