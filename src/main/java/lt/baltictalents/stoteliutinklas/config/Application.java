@@ -18,13 +18,14 @@ public class Application {
     	FindByName FBN = new FindByName(); //Done
     	FindNearestStotele FNS = new FindNearestStotele(); // Work In Progress
     	CoordinatesToStops CTS = new CoordinatesToStops(); //Done
-    	NameToStops NTS = new NameToStops();// Work In Progress
+    	NameToStops NTS = new NameToStops();// Done
+    	BusNrToStops BNTS = new BusNrToStops();
     	
     	//FNS.FindNearestStot();
     	//FBN.FindByN();
     	//CTS.coordinatesTostops();
-    	NTS.nametostops();
-    	
+    	//NTS.nametostops();
+    	//BNTS.busnrtostops();
     	
        // SpringApplication.run(new Class[] { Application.class }, args);
     }
