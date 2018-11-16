@@ -8,7 +8,14 @@ import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class AllStationsInArea {
 
-	public List<Station> findAllStationsInArea(float upperLeftX, float upperLeftY, float lowerRightX, float lowerRightY) {
+	public List<Station> findAllStationsInArea() {
+		
+		double upperLeftX, upperLeftY, lowerRightX, lowerRightY;
+		upperLeftX = Input.rasykOfFindAllStations();
+		upperLeftY = Input.rasykOfFindAllStations();
+		lowerRightX = Input.rasykOfFindAllStations();
+		lowerRightY = Input.rasykOfFindAllStations();
+		Input.reader.close();
 		
 		List<Station> allStationsInArea = new ArrayList<Station>();
 		
@@ -30,10 +37,10 @@ public class AllStationsInArea {
 		return allStationsInArea;
 	}
 
-	private boolean checkIfStationIsInArea(float upperLeftX, float upperLeftY, float lowerRightX, float lowerRightY, Station station) {
+	private boolean checkIfStationIsInArea(double upperLeftX, double upperLeftY, double lowerRightX, double lowerRightY, Station station) {
 		
-		float x = Float.parseFloat(station.getLatitude());
-		float y = Float.parseFloat(station.getLongtitute());
+		double x = Double.parseDouble(station.getLatitude());
+		double y = Double.parseDouble(station.getLongtitute());
 		
 		if ((x >= lowerRightX && x <= upperLeftX) && (y >= upperLeftY && y <= lowerRightY)) {
 			return true;
