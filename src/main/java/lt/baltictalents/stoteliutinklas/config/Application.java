@@ -28,7 +28,7 @@ public class Application {
     	//CTS.coordinatesTostops();
     	//NTS.nametostops();
     	//BNTS.busnrtostops();
-    	//allStationsInArea.findAllStationsInArea();
+    	allStationsInArea.findAllStationsInArea();
     	
        // SpringApplication.run(new Class[] { Application.class }, args);
 

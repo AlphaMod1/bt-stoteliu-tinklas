@@ -1,4 +1,4 @@
-package lt.baltictalents.stoteliutinklas.config;
+package kodas;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +10,13 @@ public class AllStationsInArea {
 
 	public List<Station> findAllStationsInArea() {
 		
+		Input input = new Input();
+		
 		double upperLeftX, upperLeftY, lowerRightX, lowerRightY;
-		upperLeftX = Input.rasykOfFindAllStations();
-		upperLeftY = Input.rasykOfFindAllStations();
-		lowerRightX = Input.rasykOfFindAllStations();
-		lowerRightY = Input.rasykOfFindAllStations();
+		upperLeftX = Input.rasykOfFindAllStations(0);
+		upperLeftY = Input.rasykOfFindAllStations(1);
+		lowerRightX = Input.rasykOfFindAllStations(2);
+		lowerRightY = Input.rasykOfFindAllStations(3);
 		Input.reader.close();
 		
 		List<Station> allStationsInArea = new ArrayList<Station>();

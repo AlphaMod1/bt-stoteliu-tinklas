@@ -11,8 +11,8 @@ public class CoordinatesToStops {
 		boolean found = false;
 		double latA, lonA;
 		int rastosStotelesMarsrutuKiekis = 0;
-		lonA = input.GetCoord(true);
-		latA = input.GetCoord(false);
+		lonA = input.GetCoord(0);
+		latA = input.GetCoord(1);
 		input.reader.close();
 		
 		for(int i = 0; i < db.getStoteles().size(); i++) {
