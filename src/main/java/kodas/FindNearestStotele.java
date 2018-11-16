@@ -16,8 +16,8 @@ public class FindNearestStotele {
 		HardCodedDb db = new HardCodedDb();
 		
 		double latA, lonA;
-		lonA = input.GetCoord(true);
-		latA = input.GetCoord(false);
+		lonA = input.GetCoord(0);
+		latA = input.GetCoord(1);
 		input.reader.close();
 		
 		double[] list = new double[db.getStoteles().size()];
