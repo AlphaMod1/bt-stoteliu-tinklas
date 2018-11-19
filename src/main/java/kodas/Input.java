@@ -60,9 +60,9 @@ public class Input {
 		while(true) {
 			
 			
-			System.out.println("1.Autobuss");
+			System.out.println("1.Autobusas");
 			System.out.println("2.Troleibusas");
-			System.out.println("Enter a number");
+			System.out.println("Enter a number:");
 			Ats = reader.next();
 			
 			try{
