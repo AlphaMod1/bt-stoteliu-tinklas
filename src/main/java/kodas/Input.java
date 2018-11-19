@@ -8,6 +8,14 @@ public class Input {
 
 	private static double temp;
 	public static Scanner reader = new Scanner(System.in);
+	public static Scanner reader2 = new Scanner(System.in);
+	
+	//Testas ar autobusas
+	
+	public static boolean ArCiaAutobusas = true;
+	public static String AutobusoNumeris = "";
+	
+	//=====================
 	
 	public static double GetCoord(int koksKlausimas) {
 
@@ -43,6 +51,55 @@ public class Input {
 		NameIn = reader.nextLine();
 		return NameIn;
 	}
+	
+	public static void GetBusName() {
+		
+		String Ats;
+		boolean autobusas = true;
+		
+		while(true) {
+			
+			
+			System.out.println("1.Autobuss");
+			System.out.println("2.Troleibusas");
+			System.out.println("Enter a number");
+			Ats = reader.next();
+			
+			try{
+				  temp = Double.parseDouble(Ats);
+				  
+				} catch (NumberFormatException e) {
+				  System.out.println("Error: Type a number");
+				}
+			
+			if(temp == 1 || temp == 2 ) {
+				
+				if(temp == 1) {
+					autobusas = true;
+				}
+				else if(temp == 2) {
+					autobusas = false;
+				}
+				
+				break;
+			}
+			else {
+				System.out.println("Error: Choose 1 or 2");
+			}
+			
+			}
+		
+		
+		
+		String NameIn = "No Name";
+		System.out.println("Enter bus number: ");
+		NameIn = reader2.nextLine();
+		
+		ArCiaAutobusas = autobusas;
+		AutobusoNumeris = NameIn;
+		
+	}
+	
 	
 	public static double rasykOfFindAllStations(int koksKlausimas) {
 

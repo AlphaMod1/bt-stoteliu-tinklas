@@ -17,18 +17,18 @@ public class Application {
     		
     	
     	AllStationsInArea allStationsInArea = new AllStationsInArea(); // Done
-    	FindByName FBN = new FindByName(); //Done
-    	FindNearestStotele FNS = new FindNearestStotele(); // Work In Progress
+    	FindByName FBN = new FindByName(); // work in progress
+    	FindNearestStotele FNS = new FindNearestStotele(); // Done
     	CoordinatesToStops CTS = new CoordinatesToStops(); //Done
     	NameToStops NTS = new NameToStops();// Done
-    	BusNrToStops BNTS = new BusNrToStops();
+    	BusNrToStops BNTS = new BusNrToStops(); //work in progress 
     	
     	//FNS.FindNearestStot();
     	//FBN.FindByN();
     	//CTS.coordinatesTostops();
     	//NTS.nametostops();
-    	//BNTS.busnrtostops();
-    	allStationsInArea.findAllStationsInArea();
+    	BNTS.busnrtostops();
+    	//allStationsInArea.findAllStationsInArea();
     	
        // SpringApplication.run(new Class[] { Application.class }, args);
 
