@@ -36,11 +36,14 @@ public class BusNrToStops {
 			
 			for(int j = 0; j<db.getStoteles().get(i).getRoutes().length;j++) {
 				
-			if(db.getStoteles().get(i).getRoutes()[j].contains(AutobusoFiltras+" "+Name)) {
+			if(db.getStoteles().get(i).getRoutes()[j].contains(AutobusoFiltras+" "+Name.toUpperCase())) {
 				radau = true;
-				RastosStoteles.add(db.getStoteles().get(i).getName());
-				//if()
-				System.out.println(db.getStoteles().get(i).getName());
+				
+				if(!RastosStoteles.contains(db.getStoteles().get(i).getName())) {
+					RastosStoteles.add(db.getStoteles().get(i).getName());
+					System.out.println(db.getStoteles().get(i).getName());
+				}
+				
 			}
 			
 			}
