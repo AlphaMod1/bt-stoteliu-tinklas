@@ -119,6 +119,9 @@ public class Input {
 		else if(koksKlausimas == 3) {
 			System.out.println("Enter Y2 Longitude:");
 		}
+		else if(koksKlausimas == 4) {
+			System.out.println("Enter Circle Radius: ");
+		}
 		else {
 			System.out.println("Error: Crash on input.java");
 		}

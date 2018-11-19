@@ -14,7 +14,7 @@ public class FindNearestStotele {
 		
 		Input input = new Input();
 		HardCodedDb db = new HardCodedDb();
-		
+	
 		double latA, lonA;
 		lonA = input.GetCoord(0);
 		latA = input.GetCoord(1);
@@ -33,7 +33,6 @@ public class FindNearestStotele {
 		}
 		System.out.println();
 		int index = getSmallest(list);
-		System.out.println(index);
 		System.out.println("Artimiausia stotelë: "+db.getStoteles().get(index).getName());
 		
 		

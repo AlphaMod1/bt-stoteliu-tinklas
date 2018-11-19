@@ -30,7 +30,6 @@ public class BusNrToStops {
 		
 		
 		
-		
 		for(int i = 0; i < db.getStoteles().size(); i++) {
 			 
 			

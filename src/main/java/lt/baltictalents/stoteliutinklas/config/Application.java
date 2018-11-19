@@ -21,14 +21,16 @@ public class Application {
     	FindNearestStotele FNS = new FindNearestStotele(); // Done
     	CoordinatesToStops CTS = new CoordinatesToStops(); //Done
     	NameToStops NTS = new NameToStops();// Done
-    	BusNrToStops BNTS = new BusNrToStops(); //work in progress 
+    	BusNrToStops BNTS = new BusNrToStops(); //Done 
+    	AllStationsInCircle ASIC = new AllStationsInCircle();
     	
     	//FNS.FindNearestStot();
     	//FBN.FindByN();
     	//CTS.coordinatesTostops();
     	//NTS.nametostops();
-    	BNTS.busnrtostops();
+    	//BNTS.busnrtostops();
     	//allStationsInArea.findAllStationsInArea();
+    	ASIC.AllStationsInCircle();
     	
        // SpringApplication.run(new Class[] { Application.class }, args);
 
