@@ -13,10 +13,10 @@ public class AllStationsInArea {
 		Input input = new Input();
 		
 		double upperLeftX, upperLeftY, lowerRightX, lowerRightY;
-		upperLeftX = Input.rasykOfFindAllStations(0);
-		upperLeftY = Input.rasykOfFindAllStations(1);
-		lowerRightX = Input.rasykOfFindAllStations(2);
-		lowerRightY = Input.rasykOfFindAllStations(3);
+		upperLeftY = Input.rasykOfFindAllStations(0);
+		upperLeftX = Input.rasykOfFindAllStations(1);
+		lowerRightY = Input.rasykOfFindAllStations(2);
+		lowerRightX = Input.rasykOfFindAllStations(3);
 		Input.reader.close();
 		
 		List<Station> allStationsInArea = new ArrayList<Station>();
