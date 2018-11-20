@@ -1,4 +1,4 @@
-package kodas;
+package kodas2;
 
 import java.util.Scanner;
 
