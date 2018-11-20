@@ -10,11 +10,11 @@ import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class FindNearestStotele {
 
-	public void FindNearestStot() {
+	public String FindNearestStot() {
 		
 		Input input = new Input();
 		HardCodedDb db = new HardCodedDb();
-		
+	
 		double latA, lonA;
 		lonA = input.GetCoord(0);
 		latA = input.GetCoord(1);
@@ -33,9 +33,11 @@ public class FindNearestStotele {
 		}
 		System.out.println();
 		int index = getSmallest(list);
-		System.out.println(index);
-		System.out.println("Artimiausia stotelë: "+db.getStoteles().get(index).getName());
 		
+		String Ats = db.getStoteles().get(index).getName();
+		System.out.println("Artimiausia stotelë: "+ index + ")" + Ats);
+		System.out.println(roundas(list[index], 2)+"Km");
+		return Ats;
 		
 
 	}

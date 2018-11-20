@@ -2,15 +2,22 @@ package kodas;
 
 import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
+
 
 public class CoordinatesToStops {
 	
-	public void coordinatesTostops() {
+	public List<String> coordinatesTostops() {
 		Input input = new Input();
 		HardCodedDb db = new HardCodedDb();
 		boolean found = false;
 		double latA, lonA;
 		int rastosStotelesMarsrutuKiekis = 0;
+		List<String> Ats = new ArrayList();
+		
 		lonA = input.GetCoord(0);
 		latA = input.GetCoord(1);
 		input.reader.close();
@@ -27,6 +34,7 @@ public class CoordinatesToStops {
 				for(int j = 0; j < rastosStotelesMarsrutuKiekis; j++) {
 					 
 				System.out.println(db.getStoteles().get(i).getRoutes()[j]);
+				Ats.add(db.getStoteles().get(i).getRoutes()[j]);
 					
 				}
 				
@@ -36,6 +44,10 @@ public class CoordinatesToStops {
 		}
 		if(!found) {
 			System.out.println("No stations found");
+			return null;
+		}
+		else {			
+			return Ats;
 		}
 	}
 	

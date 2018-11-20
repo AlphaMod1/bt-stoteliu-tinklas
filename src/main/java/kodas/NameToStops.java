@@ -1,17 +1,18 @@
 package kodas;
 
-import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import java.util.List;
 
 import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class NameToStops {
 	
-	public void nametostops() {
+	public List<String> nametostops() {
 		
 		Input input = new Input();
 		HardCodedDb db = new HardCodedDb();
 		String Name = "";
-		
+		List<String> Ats = new ArrayList();
 		
 		
 		Name = input.GetNameIn();
@@ -28,6 +29,7 @@ public class NameToStops {
 				for(int j = 0; j < rastosStotelesMarsrutuKiekis; j++) {
 					 
 				System.out.println(db.getStoteles().get(i).getRoutes()[j]);
+				Ats.add(db.getStoteles().get(i).getRoutes()[j]);
 					
 				}
 				
@@ -37,6 +39,10 @@ public class NameToStops {
 		}
 		if(!found) {
 			System.out.println("No stations found");
+			return null;
+		}
+		else {
+			return Ats;
 		}
 		
 	}
