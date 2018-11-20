@@ -17,7 +17,6 @@ public class Application {
     		
     	
     	AllStationsInArea allStationsInArea = new AllStationsInArea(); // Done
-    	FindByName FBN = new FindByName(); // work in progress
     	FindNearestStotele FNS = new FindNearestStotele(); // Done
     	CoordinatesToStops CTS = new CoordinatesToStops(); //Done
     	NameToStops NTS = new NameToStops();// Done
@@ -25,12 +24,11 @@ public class Application {
     	AllStationsInCircle ASIC = new AllStationsInCircle();
     	
     	//FNS.FindNearestStot();
-    	//FBN.FindByN();
     	//CTS.coordinatesTostops();
     	//NTS.nametostops();
     	//BNTS.busnrtostops();
     	//allStationsInArea.findAllStationsInArea();
-    	ASIC.AllStationsInCircle();
+    	//ASIC.AllStationsInCircle();
     	
        // SpringApplication.run(new Class[] { Application.class }, args);
 

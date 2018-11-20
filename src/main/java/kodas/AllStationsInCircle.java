@@ -18,7 +18,7 @@ public class AllStationsInCircle {
 		r = Input.rasykOfFindAllStations(4);
 		Input.reader.close();
 		
-		List<Station> allStationsInArea = new ArrayList<Station>();
+		List<Station> allStationsInCircle = new ArrayList<Station>();
 		
 		HardCodedDb hardCodedDb = new HardCodedDb();
 		
@@ -26,16 +26,16 @@ public class AllStationsInCircle {
 						
 		for (Station station : stations) {
 			
-			boolean stationIsInArea = checkIfStationIsInCircle(X, Y, r, station);
+			boolean stationIsInCircle = checkIfStationIsInCircle(X, Y, r, station);
 			
-			if (stationIsInArea) {
-				allStationsInArea.add(station);
+			if (stationIsInCircle) {
+				allStationsInCircle.add(station);
 				System.out.println(station.getName());
 			}
 			
 		}
 		
-		return allStationsInArea;
+		return allStationsInCircle;
 	}
 
 	private boolean checkIfStationIsInCircle(double X, double Y, double r, Station station) {

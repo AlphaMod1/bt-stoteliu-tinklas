@@ -3,16 +3,17 @@ package kodas;
 import java.util.ArrayList;
 import java.util.List;
 
+import lt.baltictalents.stoteliutinklas.data.beans.Station;
 import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class BusNrToStops {
 	
-	public void busnrtostops(){
+	public List<Station> busnrtostops(){
 	
 		Input input = new Input();
 		HardCodedDb db = new HardCodedDb();
 		boolean radau = false;
-		List<String> RastosStoteles = new ArrayList();
+		List<Station> RastosStoteles = new ArrayList();
 		
 		input.GetBusName();
 		boolean autobusas = input.ArCiaAutobusas;
@@ -39,7 +40,7 @@ public class BusNrToStops {
 				radau = true;
 				
 				if(!RastosStoteles.contains(db.getStoteles().get(i).getName())) {
-					RastosStoteles.add(db.getStoteles().get(i).getName());
+					RastosStoteles.add(db.getStoteles().get(i));
 					System.out.println(db.getStoteles().get(i).getName());
 				}
 				
@@ -50,6 +51,10 @@ public class BusNrToStops {
 		
 		if(!radau) {
 			System.out.println("Error: Wrong input");
+			return null;
+		}
+		else {
+			return RastosStoteles;
 		}
 		
 	}
