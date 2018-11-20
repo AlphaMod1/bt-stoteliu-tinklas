@@ -44,7 +44,7 @@ public class AllStationsInArea {
 		double x = Double.parseDouble(station.getLatitude());
 		double y = Double.parseDouble(station.getLongtitute());
 		
-		if ((x >= lowerRightX && x <= upperLeftX) && (y >= upperLeftY && y <= lowerRightY)) {
+		if ((x >= lowerRightX && x <= upperLeftX || x <= lowerRightX && x >= upperLeftX) && (y >= upperLeftY && y <= lowerRightY || y <= upperLeftY && y >= lowerRightY)) {
 			return true;
 		}
 					
