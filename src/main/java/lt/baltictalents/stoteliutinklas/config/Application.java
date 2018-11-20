@@ -16,19 +16,22 @@ public class Application {
     public static void main(String[] args) {
     		
     	
-    	AllStationsInArea allStationsInArea = new AllStationsInArea(); // Done
-    	FindNearestStotele FNS = new FindNearestStotele(); // Done
-    	CoordinatesToStops CTS = new CoordinatesToStops(); //Done
-    	NameToStops NTS = new NameToStops();// Done
-    	BusNrToStops BNTS = new BusNrToStops(); //Done 
+    	AllStationsInArea ASIA = new AllStationsInArea();
+    	StationsWithMostRoutes SWMR = new StationsWithMostRoutes();
+    	FindNearestStotele FNS = new FindNearestStotele();
+    	CoordinatesToStops CTS = new CoordinatesToStops();
+    	NameToStops NTS = new NameToStops();
+    	BusNrToStops BNTS = new BusNrToStops(); 
     	AllStationsInCircle ASIC = new AllStationsInCircle();
     	
     	//FNS.FindNearestStot();
     	//CTS.coordinatesTostops();
     	//NTS.nametostops();
     	//BNTS.busnrtostops();
-    	//allStationsInArea.findAllStationsInArea();
-    	//ASIC.AllStationsInCircle();
+    	//ASIA.findAllStationsInArea();
+    	ASIC.AllStationsInCircle();
+    	//SWMR.findStationsWithMostRoutes();
+    	
     	
        // SpringApplication.run(new Class[] { Application.class }, args);
 
