@@ -15,6 +15,7 @@ public class Application {
 
     public static void main(String[] args) {
     		
+    	int javafile = -1;
     	
     	AllStationsInArea ASIA = new AllStationsInArea();
     	StationsWithMostRoutes SWMR = new StationsWithMostRoutes();
@@ -23,14 +24,35 @@ public class Application {
     	NameToStops NTS = new NameToStops();
     	BusNrToStops BNTS = new BusNrToStops(); 
     	AllStationsInCircle ASIC = new AllStationsInCircle();
+    	Input input = new Input();
     	
-    	//FNS.FindNearestStot();
-    	//CTS.coordinatesTostops();
-    	//NTS.nametostops();
-    	//BNTS.busnrtostops();
-    	//ASIA.findAllStationsInArea();
-    	ASIC.AllStationsInCircle();
-    	//SWMR.findStationsWithMostRoutes();
+    	javafile = input.SelectApp();
+    	
+    	if(javafile == 1) {
+    		ASIA.findAllStationsInArea();
+    	}
+    	else if(javafile == 2){
+    		ASIC.AllStationsInCircle();
+    	}
+    	else if(javafile == 3){
+    		BNTS.busnrtostops();
+    	}
+    	else if(javafile == 4){
+    		CTS.coordinatesTostops();
+    	}
+    	else if(javafile == 5){
+    		FNS.FindNearestStot();
+    	}
+    	else if(javafile == 6){
+    		NTS.nametostops();
+    	}
+    	else if(javafile == 7){
+    		SWMR.findStationsWithMostRoutes();
+    	}
+    	else {
+    		System.out.println("Error: Crash in Input.java");
+    	}
+    	
     	
     	
        // SpringApplication.run(new Class[] { Application.class }, args);

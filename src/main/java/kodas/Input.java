@@ -140,5 +140,41 @@ public class Input {
 	}
 	
 	
+	public static int SelectApp() {
+
+		String LongLine = "=========================";
+		System.out.println(LongLine);
+		System.out.println("1) All Stations In An Area");
+		System.out.println("2) All Stations In A Circle");
+		System.out.println("3) Bus Number Conver To Stop Names");
+		System.out.println("4) Get Bus Names From Coordinates");
+		System.out.println("5) Find Nearest Stop With Coordinates");
+		System.out.println("6) Get Bus Names From Stop Name");
+		System.out.println("7) Stations With Most Routes In An Area");
+		System.out.println(LongLine);
+		
+		String Ats;
+		int temp;
+		
+		while(true) {
+		Ats = reader.next();
+		try{
+			  temp = Integer.parseInt(Ats);
+			  
+			  if(temp < 1 || temp > 7) {
+				  System.out.println("Error: Pick a number from 1 - 7");
+			  }
+			  else {break;}
+			  
+			} catch (NumberFormatException e) {
+			  System.out.println("Error: Type a number");
+			}
+		}
+		System.out.println(LongLine);
+		return temp;
+	}
+	
+
+	
 	
 }
