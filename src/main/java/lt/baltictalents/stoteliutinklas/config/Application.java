@@ -18,7 +18,7 @@ public class Application {
     	
     	
     	
-    	AllStationsInArea allStationsInArea = new AllStationsInArea(); // Done
+    	AllStationsInArea ASIA = new AllStationsInArea(); // Done
     	FindByName FBN = new FindByName(); //Done
     	FindNearestStotele FNS = new FindNearestStotele(); // Work In Progress
     	CoordinatesToStops CTS = new CoordinatesToStops(); //Done
@@ -29,7 +29,7 @@ public class Application {
     	//FBN.FindByN();
     	//CTS.coordinatesTostops();
     	//NTS.nametostops();
-    	//allStationsInArea.findAllStationsInArea();
+    	//ASIA.findAllStationsInArea();
     	SWMR.findStationsWithMostRoutes();
     	
     	
