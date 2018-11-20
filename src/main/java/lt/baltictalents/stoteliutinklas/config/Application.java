@@ -23,12 +23,15 @@ public class Application {
     	FindNearestStotele FNS = new FindNearestStotele(); // Work In Progress
     	CoordinatesToStops CTS = new CoordinatesToStops(); //Done
     	NameToStops NTS = new NameToStops();// Work In Progress
+    	StationsWithMostRoutes SWMR = new StationsWithMostRoutes();
     	
     	//FNS.FindNearestStot();
     	//FBN.FindByN();
     	//CTS.coordinatesTostops();
-    	NTS.nametostops();
-    	allStationsInArea.findAllStationsInArea();
+    	//NTS.nametostops();
+    	//allStationsInArea.findAllStationsInArea();
+    	SWMR.findStationsWithMostRoutes();
+    	
     	
        // SpringApplication.run(new Class[] { Application.class }, args);
 

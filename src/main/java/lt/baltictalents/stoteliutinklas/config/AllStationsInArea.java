@@ -30,6 +30,10 @@ public class AllStationsInArea {
 			if (stationIsInArea) {
 				allStationsInArea.add(station);
 				System.out.println(station.getName());
+//				String[] test = station.getRoutes();
+//				for (int i = 0; i < test.length; i++) {
+//					System.out.println(test[i]);
+//				}
 			}
 			
 		}
