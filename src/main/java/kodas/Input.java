@@ -48,7 +48,7 @@ public class Input {
 	public static String GetNameIn() {
 		String NameIn = "No Name";
 		System.out.println("Enter stop name: ");
-		NameIn = reader.nextLine();
+		NameIn = reader2.nextLine();
 		return NameIn;
 	}
 	
