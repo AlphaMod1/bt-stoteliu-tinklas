@@ -29,7 +29,12 @@ public class Application {
     	javafile = input.SelectApp();
     	
     	if(javafile == 1) {
-    		ASIA.findAllStationsInArea();
+    		double upperLeftX, upperLeftY, lowerRightX, lowerRightY;
+    		upperLeftX = Input.rasykOfFindAllStations(0);
+    		upperLeftY = Input.rasykOfFindAllStations(1);
+    		lowerRightX = Input.rasykOfFindAllStations(2);
+    		lowerRightY = Input.rasykOfFindAllStations(3);
+    		ASIA.findAllStationsInArea(upperLeftX,upperLeftY,lowerRightX,lowerRightY);
     	}
     	else if(javafile == 2){
     		ASIC.AllStationsInCircle();
