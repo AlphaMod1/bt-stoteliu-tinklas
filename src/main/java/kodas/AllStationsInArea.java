@@ -8,16 +8,12 @@ import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class AllStationsInArea {
 
-	public List<Station> findAllStationsInArea() {
+	public List<Station> findAllStationsInArea(double upperLeftY, double upperLeftX, double lowerRightY, double lowerRightX) {
 		
 		Input input = new Input();
 		
-		double upperLeftX, upperLeftY, lowerRightX, lowerRightY;
-		upperLeftY = Input.rasykOfFindAllStations(0);
-		upperLeftX = Input.rasykOfFindAllStations(1);
-		lowerRightY = Input.rasykOfFindAllStations(2);
-		lowerRightX = Input.rasykOfFindAllStations(3);
-		Input.reader.close();
+
+	//	Input.reader.close();
 		
 		List<Station> allStationsInArea = new ArrayList<Station>();
 		
@@ -31,10 +27,14 @@ public class AllStationsInArea {
 			
 			if (stationIsInArea) {
 				allStationsInArea.add(station);
-				System.out.println(station.getName());
 			}
 			
 		}
+		
+		for(int i = 0; i < allStationsInArea.size(); i++) {
+			 System.out.println(allStationsInArea.get(i).getName());
+		}
+		
 		
 		return allStationsInArea;
 	}
