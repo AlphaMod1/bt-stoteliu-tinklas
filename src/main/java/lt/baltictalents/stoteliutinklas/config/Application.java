@@ -15,7 +15,7 @@ public class Application {
 
     public static void main(String[] args) {
     		
-    	int javafile = -1;
+    	
     	
     	AllStationsInArea ASIA = new AllStationsInArea();
     	StationsWithMostRoutes SWMR = new StationsWithMostRoutes();
@@ -25,40 +25,55 @@ public class Application {
     	BusNrToStops BNTS = new BusNrToStops(); 
     	AllStationsInCircle ASIC = new AllStationsInCircle();
     	Input input = new Input();
+    	InputGUI gui = new InputGUI();
     	
-    	javafile = input.SelectApp();
+    	int UseGui = gui.UseNewGui();
     	
-    	if(javafile == 1) {
-    		double upperLeftX, upperLeftY, lowerRightX, lowerRightY;
-    		upperLeftX = Input.rasykOfFindAllStations(0);
-    		upperLeftY = Input.rasykOfFindAllStations(1);
-    		lowerRightX = Input.rasykOfFindAllStations(2);
-    		lowerRightY = Input.rasykOfFindAllStations(3);
-    		ASIA.findAllStationsInArea(upperLeftX,upperLeftY,lowerRightX,lowerRightY);
+    	if(UseGui == 0) {
+    		
+    		int javafile = input.SelectApp();
+        	
+        	if(javafile == 1) {
+        		double upperLeftX, upperLeftY, lowerRightX, lowerRightY;
+        		upperLeftX = Input.rasykOfFindAllStations(0);
+        		upperLeftY = Input.rasykOfFindAllStations(1);
+        		lowerRightX = Input.rasykOfFindAllStations(2);
+        		lowerRightY = Input.rasykOfFindAllStations(3);
+        		ASIA.findAllStationsInArea(upperLeftX,upperLeftY,lowerRightX,lowerRightY);
+        	}
+        	else if(javafile == 2){
+        		ASIC.AllStationsInCircle();
+        	}
+        	else if(javafile == 3){
+        		BNTS.busnrtostops();
+        	}
+        	else if(javafile == 4){
+        		CTS.coordinatesTostops();
+        	}
+        	else if(javafile == 5){
+        		FNS.FindNearestStot();
+        	}
+        	else if(javafile == 6){
+        		NTS.nametostops();
+        	}
+        	else if(javafile == 7){
+        		SWMR.findStationsWithMostRoutes();
+        	}
+        	else {
+        		System.out.println("Error: Crash in Input.java");
+        	}
+    		
     	}
-    	else if(javafile == 2){
-    		ASIC.AllStationsInCircle();
+    	
+    	else if(UseGui == 1) {
+    		System.out.println("WORK IN PROGRESS");
     	}
-    	else if(javafile == 3){
-    		BNTS.busnrtostops();
-    	}
-    	else if(javafile == 4){
-    		CTS.coordinatesTostops();
-    	}
-    	else if(javafile == 5){
-    		FNS.FindNearestStot();
-    	}
-    	else if(javafile == 6){
-    		NTS.nametostops();
-    	}
-    	else if(javafile == 7){
-    		SWMR.findStationsWithMostRoutes();
+    	else if(UseGui == 2) {
+    		gui.v3Test();
     	}
     	else {
-    		System.out.println("Error: Crash in Input.java");
+    		System.out.println("Error");
     	}
-    	
-    	
     	
        // SpringApplication.run(new Class[] { Application.class }, args);
 
