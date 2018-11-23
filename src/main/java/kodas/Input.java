@@ -9,9 +9,10 @@ public class Input {
 	private static double temp;
 	public static Scanner reader = new Scanner(System.in);
 	public static Scanner reader2 = new Scanner(System.in);
+	private static String[] ShellData;
 	
 	//Testas ar autobusas
-	
+	static String LongLine = "=========================================";
 	public static boolean ArCiaAutobusas = true;
 	public static String AutobusoNumeris = "";
 	
@@ -142,7 +143,6 @@ public class Input {
 	
 	public static int SelectApp() {
 
-		String LongLine = "=========================================";
 		System.out.println(LongLine);
 		System.out.println("1) All Stations In An Area");
 		System.out.println("2) All Stations In A Circle");
@@ -151,6 +151,7 @@ public class Input {
 		System.out.println("5) Find Nearest Stop With Coordinates");
 		System.out.println("6) Get Bus Names From Stop Name");
 		System.out.println("7) Stations With Most Routes In An Area");
+		System.out.println("0) Exit");
 		System.out.println(LongLine);
 		
 		String Ats;
@@ -161,8 +162,8 @@ public class Input {
 		try{
 			  temp = Integer.parseInt(Ats);
 			  
-			  if(temp < 1 || temp > 7) {
-				  System.out.println("Error: Pick a number from 1 - 7");
+			  if(temp < 0 || temp > 7) {
+				  System.out.println("Error: Pick a number from 0 - 7");
 			  }
 			  else {break;}
 			  
@@ -176,5 +177,53 @@ public class Input {
 	
 
 	
+		public static int ShellAppSelect() {
+			String Ats;
+			int temp = -1;
+			Ats = reader.nextLine();
+			String arr[] = Ats.split(" ");
+			
+			if(arr[0].equalsIgnoreCase("help") || arr[0].equalsIgnoreCase("?")) {
+				temp = 0;
+			}
+			else if(arr[0].equalsIgnoreCase("exit") || arr[0].equalsIgnoreCase("stop")) {
+				temp = -2;
+			}
+			else {
+				
+				if(arr[0].equalsIgnoreCase("AllStationsInArea") || arr[0].equalsIgnoreCase("ASIA")) {
+					temp = 1;
+				}
+				else if(arr[0].equalsIgnoreCase("AllStationsInCircle") || arr[0].equalsIgnoreCase("ASIC")) {
+					temp = 2;
+				}
+				else if(arr[0].equalsIgnoreCase("BusNrToStops") || arr[0].equalsIgnoreCase("BNTS")) {
+					temp = 3;
+				}
+				else if(arr[0].equalsIgnoreCase("CoordinatesToStops") || arr[0].equalsIgnoreCase("CTS")) {
+					temp = 4;
+				}
+				else if(arr[0].equalsIgnoreCase("FindNearestStotele") || arr[0].equalsIgnoreCase("FNS")) {
+					temp = 5;
+				}
+				else if(arr[0].equalsIgnoreCase("NameToStops") || arr[0].equalsIgnoreCase("NTS")) {
+					temp = 6;
+				}
+				else if(arr[0].equalsIgnoreCase("StationsWithMostRoutes") || arr[0].equalsIgnoreCase("SWMR")) {
+					temp = 7;
+				}
+				else {
+					temp = -1;
+				}
+			}
+			
+			
+			ShellData = arr;
+			return temp; 
+		}
+		
+		public static String[] GetShellArg(){
+			return ShellData;
+		}
 	
 }
