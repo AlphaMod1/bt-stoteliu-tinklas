@@ -49,7 +49,10 @@ public class Application {
         		ASIC.AllStationsInCircle(X, Y, r);
         	}
         	else if(javafile == 3){
-        		BNTS.busnrtostops();
+        		input.GetBusName();
+        		boolean autobusas = input.ArCiaAutobusas;
+        		String Name = input.AutobusoNumeris;
+        		BNTS.busnrtostops(autobusas, Name);
         	}
         	else if(javafile == 4){
         		double latA, lonA;
