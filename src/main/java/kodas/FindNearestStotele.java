@@ -10,15 +10,11 @@ import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class FindNearestStotele {
 
-	public String FindNearestStot() {
+	public String FindNearestStot(double lonA, double latA) {
 		
 		Input input = new Input();
 		HardCodedDb db = new HardCodedDb();
-	
-		double latA, lonA;
-		lonA = input.GetCoord(0);
-		latA = input.GetCoord(1);
-		input.reader.close();
+
 		
 		double[] list = new double[db.getStoteles().size()];
 		
