@@ -31,7 +31,10 @@ public class AllStationsInArea {
 			
 		}
 		
-
+		for(int i = 0; i < allStationsInArea.size(); i++) {
+			 System.out.println(allStationsInArea.get(i).getName());
+			
+		}
 		
 		
 		return allStationsInArea;

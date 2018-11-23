@@ -15,7 +15,8 @@ public class Application {
 
     public static void main(String[] args) {
     		
-    	
+    	String LongLine = "=========================================";
+    	String nl = System.getProperty("line.separator");
     	
     	AllStationsInArea ASIA = new AllStationsInArea();
     	StationsWithMostRoutes SWMR = new StationsWithMostRoutes();
@@ -31,10 +32,13 @@ public class Application {
     	
 
     	if(UseGui == 0) {
-    		
+    		boolean working = true;
+    		while(working) {
     		int javafile = input.SelectApp();
-        	
-        	if(javafile == 1) {
+        	if( javafile == 0) {
+        		System.exit(0);
+        	}
+    		else if(javafile == 1) {
         		double upperLeftX, upperLeftY, lowerRightX, lowerRightY;
         		upperLeftX = Input.rasykOfFindAllStations(0);
         		upperLeftY = Input.rasykOfFindAllStations(1);
@@ -83,12 +87,180 @@ public class Application {
         	else {
         		System.out.println("Error: Crash in Input.java");
         	}
-    		
+        	System.out.println();
+    		}
 
     	}
     	
     	else if(UseGui == 1) {
-    		System.out.println("WORK IN PROGRESS");
+    		boolean working = true;
+    		int select = -2;
+    		while(working) {
+    			select = input.ShellAppSelect();
+    			
+    			if(select == -2) {
+    				System.exit(0);
+    			}
+    			else if(select == -1) {
+    				System.out.println("Type 'help' or '?' for help");
+    			}
+    			else if(select == 0) {
+    				System.out.println(nl+LongLine+nl+"Commands:"+nl+LongLine+nl+"AllStationsInArea(ASIA),"+nl+"StationsWithMostRoutes(SWMR),"+nl+
+    						"FindNearestStotele(FNS),"+nl+"CoordinatesToStops(CTS),"+nl+"NameToStops(NTS), BusNrToStops(BNTS),"+nl+
+    						"AllStationsInCircle(ASIC)"+nl+LongLine+nl);
+    				
+    			}
+    			else if(select == 1) {
+    				
+    				double[] argumentai = {0,0,0,0};
+    				if(input.GetShellArg().length == 5) {
+    					try {
+    					for(int i = 1; i < 5; i++) {
+    						argumentai[i-1] = Double.parseDouble(input.GetShellArg()[i]);	 
+    					}
+    					}
+    					catch(NumberFormatException e){
+    						System.out.println("Error: Invalid arg");
+        					System.out.println(input.GetShellArg()[0]+" double, double, double, double");
+    					}
+
+    					ASIA.findAllStationsInArea(argumentai[0], argumentai[1], argumentai[2], argumentai[3]);
+    				}
+    				else {
+    					System.out.println("Error: Invalid arg");
+    					System.out.println(input.GetShellArg()[0]+" double, double, double, double");
+    				}
+    				
+    				
+    			}
+    			else if(select == 2) {
+    				
+    				double[] argumentai = {0,0,0};
+    				if(input.GetShellArg().length == 4) {
+    					try {
+    					for(int i = 1; i < 4; i++) {
+    						argumentai[i-1] = Double.parseDouble(input.GetShellArg()[i]);	 
+    					}
+    					}
+    					catch(NumberFormatException e){
+    						System.out.println("Error: Invalid arg");
+        					System.out.println(input.GetShellArg()[0]+" double, double, double");
+    					}
+
+    					ASIC.AllStationsInCircle(argumentai[0], argumentai[1], argumentai[2]);
+    				}
+    				else {
+    					System.out.println("Error: Invalid arg");
+    					System.out.println(input.GetShellArg()[0]+" double, double, double");
+    				}
+    				
+    			}
+    			else if(select == 3) {	
+
+    				if(input.GetShellArg().length == 3) {
+    					if(input.GetShellArg()[1].equalsIgnoreCase("-a") || input.GetShellArg()[1].equalsIgnoreCase("-t")) {
+    						if(input.GetShellArg()[1].equalsIgnoreCase("-a")) {
+    							BNTS.busnrtostops(true, input.GetShellArg()[2]);
+    						}
+    						else {
+    							BNTS.busnrtostops(false, input.GetShellArg()[2]);
+    						}
+    					}
+    					else {
+        					System.out.println("Error: Invalid arg");
+        					System.out.println(input.GetShellArg()[0]+" boolean(use -A or -T), String(bus number)");
+    					}
+    				}
+    				else {
+    					System.out.println("Error: Invalid arg");
+    					System.out.println(input.GetShellArg()[0]+" boolean(use -A or -T), String(bus number)");
+    				}
+    					
+    				
+    			}
+    			else if(select == 4) {
+    			
+    				double[] argumentai = {0,0};
+    				if(input.GetShellArg().length == 3) {
+    					try {
+    					for(int i = 1; i < 3; i++) {
+    						argumentai[i-1] = Double.parseDouble(input.GetShellArg()[i]);	 
+    					}
+    					}
+    					catch(NumberFormatException e){
+    						System.out.println("Error: Invalid arg");
+        					System.out.println(input.GetShellArg()[0]+" double, double");
+    					}
+
+    					CTS.coordinatesTostops(argumentai[0], argumentai[1]);
+    				}
+    				else {
+    					System.out.println("Error: Invalid arg");
+    					System.out.println(input.GetShellArg()[0]+" double, double");
+    				}
+    				
+    			}
+    			else if(select == 5) {
+    				
+    				double[] argumentai = {0,0};
+    				if(input.GetShellArg().length == 3) {
+    					try {
+    					for(int i = 1; i < 3; i++) {
+    						argumentai[i-1] = Double.parseDouble(input.GetShellArg()[i]);	 
+    					}
+    					}
+    					catch(NumberFormatException e){
+    						System.out.println("Error: Invalid arg");
+        					System.out.println(input.GetShellArg()[0]+" double, double");
+    					}
+
+    					CTS.coordinatesTostops(argumentai[0], argumentai[1]);
+    				}
+    				else {
+    					System.out.println("Error: Invalid arg");
+    					System.out.println(input.GetShellArg()[0]+" double, double");
+    				}
+    				
+    			}
+    			else if(select == 6) {
+    				
+    				if(input.GetShellArg().length == 2) {
+    					NTS.nametostops(input.GetShellArg()[1]);
+    				}
+    				else {
+    					System.out.println("Error: Invalid arg");
+    					System.out.println(input.GetShellArg()[0]+" String(Name)");
+    				}
+    				
+    			}
+    			else if(select == 7) {
+    				
+    				double[] argumentai = {0,0,0,0};
+    				if(input.GetShellArg().length == 5) {
+    					try {
+    					for(int i = 1; i < 5; i++) {
+    						argumentai[i-1] = Double.parseDouble(input.GetShellArg()[i]);	 
+    					}
+    					}
+    					catch(NumberFormatException e){
+    						System.out.println("Error: Invalid arg");
+        					System.out.println(input.GetShellArg()[0]+" double, double, double, double");
+    					}
+
+    					ASIA.findAllStationsInArea(argumentai[0], argumentai[1], argumentai[2], argumentai[3]);
+    				}
+    				else {
+    					System.out.println("Error: Invalid arg");
+    					System.out.println(input.GetShellArg()[0]+" double, double, double, double");
+    				}
+    				
+    			}
+    			else {
+    				System.out.println("Error");
+    			}
+    			
+    			
+    		}
     	}
 
     	else if(UseGui == 2) {
