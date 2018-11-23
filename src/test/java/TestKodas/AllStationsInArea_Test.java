@@ -25,7 +25,7 @@ public class AllStationsInArea_Test {
 		//System.out.println(test.findAllStationsInArea(26,55,20,50).size());
 		
 		assertEquals(TestList1,test.findAllStationsInArea(0,0,0,0));
-		assertEquals("Bernardinø sodas",test.findAllStationsInArea(25.2905741,54.6847849,25.2905741,54.6847849).get(0).getName());
+		assertEquals("BernardinÅ³ sodas",test.findAllStationsInArea(25.2905741,54.6847849,25.2905741,54.6847849).get(0).getName());
 		assertEquals(db.getStoteles().size(),test.findAllStationsInArea(26,55,20,50).size());
 	
 		

@@ -9,10 +9,10 @@ import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class StationsWithMostRoutes {
 	
-	public List<Station> findStationsWithMostRoutes() {
+	public List<Station> findStationsWithMostRoutes(double upperLeftY, double upperLeftX, double lowerRightY, double lowerRightX) {
 		
 		List<Station> stationsWithMostRoutes = new ArrayList<Station>();
-		List<Station> allStationsInArea = findAllStationsInArea();
+		List<Station> allStationsInArea = findAllStationsInArea(upperLeftY, upperLeftX, lowerRightY, lowerRightX);
 		
 		allStationsInArea.sort(comparatorByRoutes);
 		
@@ -29,14 +29,9 @@ public class StationsWithMostRoutes {
 		return stationsWithMostRoutes;
 	}
 	
-	private List<Station> findAllStationsInArea() {
-		
-		double upperLeftX, upperLeftY, lowerRightX, lowerRightY;
-		upperLeftY = Input.rasykOfFindAllStations(0);
-		upperLeftX = Input.rasykOfFindAllStations(1);
-		lowerRightY = Input.rasykOfFindAllStations(2);
-		lowerRightX = Input.rasykOfFindAllStations(3);
-		Input.reader.close();
+	private List<Station> findAllStationsInArea(double upperLeftY, double upperLeftX, double lowerRightY, double lowerRightX) {
+				
+//		Input.reader.close();
 		
 		List<Station> allStationsInArea = new ArrayList<Station>();
 		
@@ -69,7 +64,7 @@ public class StationsWithMostRoutes {
 		return false;
 	}
 			
-	Comparator<Station> comparatorByRoutes = new Comparator<Station>() {
+	public Comparator<Station> comparatorByRoutes = new Comparator<Station>() {
 		
 		@Override
 		public int compare (Station station1, Station station2) {

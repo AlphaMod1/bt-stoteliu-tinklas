@@ -52,7 +52,12 @@ public class Application {
     		NTS.nametostops();
     	}
     	else if(javafile == 7){
-    		SWMR.findStationsWithMostRoutes();
+    		double upperLeftX, upperLeftY, lowerRightX, lowerRightY;
+    		upperLeftX = Input.rasykOfFindAllStations(0);
+    		upperLeftY = Input.rasykOfFindAllStations(1);
+    		lowerRightX = Input.rasykOfFindAllStations(2);
+    		lowerRightY = Input.rasykOfFindAllStations(3);
+    		SWMR.findStationsWithMostRoutes(upperLeftX,upperLeftY,lowerRightX,lowerRightY);
     	}
     	else {
     		System.out.println("Error: Crash in Input.java");
