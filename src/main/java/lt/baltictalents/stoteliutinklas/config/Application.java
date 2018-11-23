@@ -42,22 +42,39 @@ public class Application {
         		ASIA.findAllStationsInArea(upperLeftX,upperLeftY,lowerRightX,lowerRightY);
         	}
         	else if(javafile == 2){
-        		ASIC.AllStationsInCircle();
+        		double X, Y, r;
+        		Y = Input.rasykOfFindAllStations(0);
+        		X = Input.rasykOfFindAllStations(1);
+        		r = Input.rasykOfFindAllStations(4);
+        		ASIC.AllStationsInCircle(X, Y, r);
         	}
         	else if(javafile == 3){
         		BNTS.busnrtostops();
         	}
         	else if(javafile == 4){
-        		CTS.coordinatesTostops();
+        		double latA, lonA;
+        		lonA = input.GetCoord(0);
+        		latA = input.GetCoord(1);
+        		CTS.coordinatesTostops(lonA, latA);
         	}
         	else if(javafile == 5){
-        		FNS.FindNearestStot();
+        		double latA, lonA;
+        		lonA = input.GetCoord(0);
+        		latA = input.GetCoord(1);
+        		FNS.FindNearestStot(latA,lonA);
         	}
         	else if(javafile == 6){
-        		NTS.nametostops();
+        		String Name = "";
+        		Name = input.GetNameIn();
+        		NTS.nametostops(Name);
         	}
         	else if(javafile == 7){
-        		SWMR.findStationsWithMostRoutes();
+        		double uX, uY, lX, lY;
+        		uX = Input.rasykOfFindAllStations(0);
+        		uY = Input.rasykOfFindAllStations(1);
+        		lX = Input.rasykOfFindAllStations(2);
+        		lY = Input.rasykOfFindAllStations(3);
+        		SWMR.findStationsWithMostRoutes(uX, uY, lX, lY);
         	}
         	else {
         		System.out.println("Error: Crash in Input.java");
@@ -70,6 +87,7 @@ public class Application {
     	}
     	else if(UseGui == 2) {
     		gui.v3Test();
+    		// 	gui.test();
     	}
     	else {
     		System.out.println("Error");

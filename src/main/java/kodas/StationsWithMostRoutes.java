@@ -9,10 +9,10 @@ import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class StationsWithMostRoutes {
 	
-	public List<Station> findStationsWithMostRoutes() {
+	public List<Station> findStationsWithMostRoutes(double uX, double uY, double lX, double lY) {
 		
 		List<Station> stationsWithMostRoutes = new ArrayList<Station>();
-		List<Station> allStationsInArea = findAllStationsInArea();
+		List<Station> allStationsInArea = findAllStationsInArea(uX, uY, lX, lY);
 		
 		allStationsInArea.sort(comparatorByRoutes);
 		
@@ -29,14 +29,8 @@ public class StationsWithMostRoutes {
 		return stationsWithMostRoutes;
 	}
 	
-	private List<Station> findAllStationsInArea() {
+	private List<Station> findAllStationsInArea(double upperLeftX, double upperLeftY, double lowerRightX, double lowerRightY) {
 		
-		double upperLeftX, upperLeftY, lowerRightX, lowerRightY;
-		upperLeftY = Input.rasykOfFindAllStations(0);
-		upperLeftX = Input.rasykOfFindAllStations(1);
-		lowerRightY = Input.rasykOfFindAllStations(2);
-		lowerRightX = Input.rasykOfFindAllStations(3);
-		Input.reader.close();
 		
 		List<Station> allStationsInArea = new ArrayList<Station>();
 		
