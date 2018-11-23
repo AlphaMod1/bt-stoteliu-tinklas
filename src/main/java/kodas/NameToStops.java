@@ -7,16 +7,11 @@ import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class NameToStops {
 	
-	public List<String> nametostops() {
+	public List<String> nametostops(String Name) {
 		
 		Input input = new Input();
 		HardCodedDb db = new HardCodedDb();
-		String Name = "";
 		List<String> Ats = new ArrayList();
-		
-		
-		Name = input.GetNameIn();
-		
 		
 		int rastosStotelesMarsrutuKiekis;
 		boolean found = false;

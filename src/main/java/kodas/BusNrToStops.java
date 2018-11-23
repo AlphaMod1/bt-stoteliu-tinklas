@@ -8,16 +8,14 @@ import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class BusNrToStops {
 	
-	public List<Station> busnrtostops(){
+	public List<Station> busnrtostops(boolean autobusas, String Name){
 	
 		Input input = new Input();
 		HardCodedDb db = new HardCodedDb();
 		boolean radau = false;
 		List<Station> RastosStoteles = new ArrayList();
 		
-		input.GetBusName();
-		boolean autobusas = input.ArCiaAutobusas;
-		String Name = input.AutobusoNumeris;
+
 		String AutobusoFiltras = "";
 		
 		if(autobusas) {

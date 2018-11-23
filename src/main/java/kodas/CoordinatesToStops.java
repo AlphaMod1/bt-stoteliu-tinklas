@@ -10,17 +10,12 @@ import java.util.List;
 
 public class CoordinatesToStops {
 	
-	public List<String> coordinatesTostops() {
+	public List<String> coordinatesTostops(double lonA, double latA) {
 		Input input = new Input();
 		HardCodedDb db = new HardCodedDb();
 		boolean found = false;
-		double latA, lonA;
 		int rastosStotelesMarsrutuKiekis = 0;
 		List<String> Ats = new ArrayList();
-		
-		lonA = input.GetCoord(0);
-		latA = input.GetCoord(1);
-		input.reader.close();
 		
 		for(int i = 0; i < db.getStoteles().size(); i++) {
 			double tempLat = 0;	
@@ -50,6 +45,6 @@ public class CoordinatesToStops {
 			return Ats;
 		}
 	}
-	
 
+	
 }
