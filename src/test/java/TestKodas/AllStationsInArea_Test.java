@@ -22,11 +22,13 @@ public class AllStationsInArea_Test {
 		List<Station> TestList2 = new ArrayList();
 		TestList2.add(db.getStoteles().get(3));
 		//System.out.println(test.findAllStationsInArea(54.6847849,25.2905741,54.6847849,25.2905741));
-		System.out.println(test.findAllStationsInArea(26,55,20,50).size());
+
+		//System.out.println(test.findAllStationsInArea(26,55,20,50).size());
 		
 		assertEquals(TestList1,test.findAllStationsInArea(0,0,0,0));
-		assertEquals("Bernardin� sodas",test.findAllStationsInArea(25.2905741,54.6847849,25.2905741,54.6847849).get(0).getName());
-		assertEquals(1177,test.findAllStationsInArea(26,55,20,50).size());
+		assertEquals("BernardinÅ³ sodas",test.findAllStationsInArea(25.2905741,54.6847849,25.2905741,54.6847849).get(0).getName());
+		assertEquals(db.getStoteles().size(),test.findAllStationsInArea(26,55,20,50).size());
+
 	
 		
 	}

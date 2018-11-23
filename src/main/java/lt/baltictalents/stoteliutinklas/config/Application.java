@@ -29,6 +29,7 @@ public class Application {
     	
     	int UseGui = gui.UseNewGui();
     	
+
     	if(UseGui == 0) {
     		
     		int javafile = input.SelectApp();
@@ -83,14 +84,17 @@ public class Application {
         		System.out.println("Error: Crash in Input.java");
         	}
     		
+
     	}
     	
     	else if(UseGui == 1) {
     		System.out.println("WORK IN PROGRESS");
     	}
+
     	else if(UseGui == 2) {
     		gui.v3Test();
     		// 	gui.test();
+
     	}
     	else {
     		System.out.println("Error");
