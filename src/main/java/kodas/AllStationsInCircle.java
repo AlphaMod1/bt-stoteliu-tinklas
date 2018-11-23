@@ -8,15 +8,10 @@ import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class AllStationsInCircle {
 
-	public List<Station> AllStationsInCircle() {
+	public List<Station> AllStationsInCircle(double X, double Y, double r) {
 		
 		Input input = new Input();
 		
-		double X, Y, r;
-		Y = Input.rasykOfFindAllStations(0);
-		X = Input.rasykOfFindAllStations(1);
-		r = Input.rasykOfFindAllStations(4);
-		Input.reader.close();
 		
 		List<Station> allStationsInCircle = new ArrayList<Station>();
 		

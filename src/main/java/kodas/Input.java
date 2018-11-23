@@ -142,7 +142,7 @@ public class Input {
 	
 	public static int SelectApp() {
 
-		String LongLine = "=========================";
+		String LongLine = "=========================================";
 		System.out.println(LongLine);
 		System.out.println("1) All Stations In An Area");
 		System.out.println("2) All Stations In A Circle");
