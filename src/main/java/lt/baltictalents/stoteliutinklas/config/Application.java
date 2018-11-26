@@ -97,7 +97,6 @@ public class Application {
     		int select = -2;
     		while(working) {
     			select = input.ShellAppSelect();
-    			
     			if(select == -2) {
     				System.exit(0);
     			}
@@ -147,7 +146,7 @@ public class Application {
         					System.out.println(input.GetShellArg()[0]+" double, double, double");
     					}
 
-    					ASIC.AllStationsInCircle(argumentai[0], argumentai[1], argumentai[2]);
+    					ASIC.AllStationsInCircle(argumentai[1], argumentai[0], argumentai[2]);
     				}
     				else {
     					System.out.println("Error: Invalid arg");
@@ -214,7 +213,7 @@ public class Application {
         					System.out.println(input.GetShellArg()[0]+" double, double");
     					}
 
-    					CTS.coordinatesTostops(argumentai[0], argumentai[1]);
+    					FNS.FindNearestStot(argumentai[0], argumentai[1]);
     				}
     				else {
     					System.out.println("Error: Invalid arg");
@@ -224,8 +223,8 @@ public class Application {
     			}
     			else if(select == 6) {
     				
-    				if(input.GetShellArg().length == 2) {
-    					NTS.nametostops(input.GetShellArg()[1]);
+    				if(input.GetShellArg().length > 1) {
+    					NTS.nametostops(input.GetShellArgForNTS()[1]);
     				}
     				else {
     					System.out.println("Error: Invalid arg");
@@ -247,7 +246,7 @@ public class Application {
         					System.out.println(input.GetShellArg()[0]+" double, double, double, double");
     					}
 
-    					ASIA.findAllStationsInArea(argumentai[0], argumentai[1], argumentai[2], argumentai[3]);
+    					SWMR.findStationsWithMostRoutes(argumentai[1], argumentai[0], argumentai[3], argumentai[2]);
     				}
     				else {
     					System.out.println("Error: Invalid arg");
