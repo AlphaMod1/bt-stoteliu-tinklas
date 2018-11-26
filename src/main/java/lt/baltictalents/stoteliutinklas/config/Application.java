@@ -1,6 +1,9 @@
 
 package lt.baltictalents.stoteliutinklas.config;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //import org.springframework.boot.SpringApplication;
 //import org.springframework.boot.autoconfigure.SpringBootApplication;
 //import org.springframework.context.annotation.ComponentScan;
@@ -25,6 +28,7 @@ public class Application {
     	NameToStops NTS = new NameToStops();
     	BusNrToStops BNTS = new BusNrToStops(); 
     	AllStationsInCircle ASIC = new AllStationsInCircle();
+    	IntersectionsOfRoutes IOR = new IntersectionsOfRoutes();
     	Input input = new Input();
     	InputGUI gui = new InputGUI();
     	
@@ -83,6 +87,13 @@ public class Application {
         		lX = Input.rasykOfFindAllStations(2);
         		lY = Input.rasykOfFindAllStations(3);
         		SWMR.findStationsWithMostRoutes(uX, uY, lX, lY);
+        	}
+        	else if(javafile == 8) {
+        		List<String> IORlist = new ArrayList();
+        		IORlist = input.IORreader();
+        		String[] arg = new String[IORlist.size()];
+        		IORlist.toArray(arg);
+        		IOR.findIntersectionsOfRoutes(arg);
         	}
         	else {
         		System.out.println("Error: Crash in Input.java");

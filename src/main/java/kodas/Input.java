@@ -1,5 +1,7 @@
 package kodas;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -152,6 +154,7 @@ public class Input {
 		System.out.println("5) Find Nearest Stop With Coordinates");
 		System.out.println("6) Get Bus Names From Stop Name");
 		System.out.println("7) Stations With Most Routes In An Area");
+		System.out.println("8) Intersections Of Routes(Type 'x' to stop)"); 
 		System.out.println("0) Exit");
 		System.out.println(LongLine);
 		
@@ -163,8 +166,8 @@ public class Input {
 		try{
 			  temp = Integer.parseInt(Ats);
 			  
-			  if(temp < 0 || temp > 7) {
-				  System.out.println("Error: Pick a number from 0 - 7");
+			  if(temp < 0 || temp > 8) {
+				  System.out.println("Error: Pick a number from 0 - 8");
 			  }
 			  else {break;}
 			  
@@ -174,6 +177,27 @@ public class Input {
 		}
 		System.out.println(LongLine);
 		return temp;
+	}
+	
+	
+	public static List<String> IORreader() {
+		
+		List<String> IORlist = new ArrayList();
+		String Ats;
+		while(true) {
+		Ats = reader.nextLine();
+		if(Ats.equalsIgnoreCase("x")) {
+			break;
+		}
+		else if(Ats.equals(" ")){
+			System.out.println("Try again");
+		}
+		else {
+			IORlist.add(Ats);
+		}
+		}
+		
+		return IORlist;
 	}
 	
 
