@@ -27,7 +27,7 @@ public class IntersectionsOfRoutes {
 		for (String name : stationsOfIntersections) {
 			System.out.println(name);
 		}
-		
+
 		return stationsOfIntersections;
 	};
 	
