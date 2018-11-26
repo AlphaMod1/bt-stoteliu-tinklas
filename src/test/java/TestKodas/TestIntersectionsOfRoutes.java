@@ -22,9 +22,9 @@ public class TestIntersectionsOfRoutes {
 		
 		assertEquals(testList1, target.findIntersectionsOfRoutes(new String[] {""}));
 		assertEquals(22, target.findIntersectionsOfRoutes(new String[] {"Autobusas 2G: Stotis - Santariškės"}).size());
-		assertEquals(7, target.findIntersectionsOfRoutes(new String[] {"Autobusas 48 Santariškės - Laisvės pr. - Šeškinė", 
-				"Autobusas 2G: Stotis - Santariškės"}).size());
-				
+		assertEquals(0, target.findIntersectionsOfRoutes(new String[] {"Autobusas 6G: Žaliasis tiltas - Parko g.",
+				"Autobusas 49 Ateities g. - Didlaukio g. - Žalgirio g. - Lazdynai - Bukčiai"}).size());
+					
 	}
 
 }
