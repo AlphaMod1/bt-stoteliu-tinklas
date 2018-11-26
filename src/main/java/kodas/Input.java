@@ -10,6 +10,7 @@ public class Input {
 	public static Scanner reader = new Scanner(System.in);
 	public static Scanner reader2 = new Scanner(System.in);
 	private static String[] ShellData;
+	private static String[] ShellDataNTS;
 	
 	//Testas ar autobusas
 	static String LongLine = "=========================================";
@@ -182,6 +183,7 @@ public class Input {
 			int temp = -1;
 			Ats = reader.nextLine();
 			String arr[] = Ats.split(" ");
+			String NTSarr[] = Ats.split(" ", 2);
 			
 			if(arr[0].equalsIgnoreCase("help") || arr[0].equalsIgnoreCase("?")) {
 				temp = 0;
@@ -219,11 +221,14 @@ public class Input {
 			
 			
 			ShellData = arr;
+			ShellDataNTS = NTSarr;
 			return temp; 
 		}
 		
 		public static String[] GetShellArg(){
 			return ShellData;
 		}
-	
+		public static String[] GetShellArgForNTS(){
+			return ShellDataNTS;
+		}
 }

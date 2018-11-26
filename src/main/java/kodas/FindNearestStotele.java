@@ -25,14 +25,14 @@ public class FindNearestStotele {
 		tempLat = Double.parseDouble(db.getStoteles().get(i).getLatitude());
 		tempLon = Double.parseDouble(db.getStoteles().get(i).getLongtitute());
 		list[i]=(distance(latA,lonA,tempLat,tempLon,"K"));
-		System.out.println(i+") "+roundas(list[i],2)+"km");
+		//System.out.println(i+") "+roundas(list[i],2)+"km");
 		}
-		System.out.println();
+		//System.out.println();
 		int index = getSmallest(list);
 		
 		String Ats = db.getStoteles().get(index).getName();
-		System.out.println("Artimiausia stotelë: "+ index + ")" + Ats);
-		System.out.println(roundas(list[index], 2)+"Km");
+		System.out.println("Artimiausia stotelë: " + Ats);
+		//System.out.println(roundas(list[index], 2)+"Km");
 		return Ats;
 		
 
