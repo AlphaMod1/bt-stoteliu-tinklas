@@ -13,6 +13,7 @@ public class Input {
 	public static Scanner reader2 = new Scanner(System.in);
 	private static String[] ShellData;
 	private static String[] ShellDataNTS;
+	public static int useTXT;
 	
 	//Testas ar autobusas
 	static String LongLine = "=========================================";
@@ -166,7 +167,7 @@ public class Input {
 		try{
 			  temp = Integer.parseInt(Ats);
 			  
-			  if(temp < 0 || temp > 8) {
+			  if(temp < 0 || temp > 9) {
 				  System.out.println("Error: Pick a number from 0 - 8");
 			  }
 			  else {break;}
@@ -205,10 +206,20 @@ public class Input {
 		public static int ShellAppSelect() {
 			String Ats;
 			int temp = -1;
+			int useTxt = -1;
 			Ats = reader.nextLine();
 			String arr[] = Ats.split(" ");
 			String NTSarr[] = Ats.split(" ", 2);
 			
+//			if(arr[1].equalsIgnoreCase("marsrutai.txt") || arr[1].equalsIgnoreCase("-m")) {
+//				useTxt = 1;
+//			}
+//			else if(arr[1].equalsIgnoreCase("stoteles.txt") || arr[1].equalsIgnoreCase("-s")) {
+//				useTxt = 2;
+//			}
+//			else if(arr[1].equalsIgnoreCase("hardcideddb.java") || arr[1].equalsIgnoreCase("-h")) {
+//				useTxt = 0;
+//			}
 			if(arr[0].equalsIgnoreCase("help") || arr[0].equalsIgnoreCase("?")) {
 				temp = 0;
 			}
@@ -238,12 +249,15 @@ public class Input {
 				else if(arr[0].equalsIgnoreCase("StationsWithMostRoutes") || arr[0].equalsIgnoreCase("SWMR")) {
 					temp = 7;
 				}
+				else if(arr[0].equalsIgnoreCase("IntersectionsOfRoutes") || arr[0].equalsIgnoreCase("IOR")) {
+					temp = 8;
+				}
 				else {
 					temp = -1;
 				}
 			}
 			
-			
+			useTXT = useTxt;
 			ShellData = arr;
 			ShellDataNTS = NTSarr;
 			return temp; 
@@ -254,5 +268,8 @@ public class Input {
 		}
 		public static String[] GetShellArgForNTS(){
 			return ShellDataNTS;
+		}
+		public static int GetTxtFileSelect() {
+			return useTXT;
 		}
 }

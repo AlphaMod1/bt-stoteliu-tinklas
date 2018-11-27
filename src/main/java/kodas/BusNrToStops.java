@@ -25,10 +25,6 @@ public class BusNrToStops {
 			AutobusoFiltras = "Troleibusas";
 		}
 		
-		
-		
-		
-		
 		for(int i = 0; i < db.getStoteles().size(); i++) {
 			 
 			

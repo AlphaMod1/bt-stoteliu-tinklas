@@ -7,8 +7,7 @@ public class InputGUI {
 	HardCodedDb db = new HardCodedDb();
 	
 	public int UseNewGui() {
-	
-		Object[] options = {"v1", "v2", "v3"};
+		Object[] options = {"Console with 'buttons'", "Real Console", "Test Area"};
 		int Ats = JOptionPane.showOptionDialog(null, "Select Shell Version", "Select",
 		JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
 		null, options, options[2]);
