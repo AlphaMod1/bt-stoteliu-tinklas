@@ -37,17 +37,17 @@ public class WholeAreaStationsWithMostRoutes {
 			i++;
 		}
 		
-//		if (allStations.get(numberOfStations).getRoutes().length == allStations.get(numberOfStations + 1).getRoutes().length) {
-//			
-//			int j = 1;
-//			Iterator<Station> iterator = allStations.iterator();
-//			while (allStations.get(numberOfStations).getRoutes().length == allStations.get(numberOfStations + j).getRoutes().length 
-//					&& iterator.hasNext()) {
-//				
-//				stationsWithMostRoutes.add(allStations.get(j));
-//				j++;
-//			}
-//		}
+		if (numberOfStations > 0 && allStations.get(numberOfStations - 1).getRoutes().length == allStations.get(numberOfStations).getRoutes().length) {
+			
+			int j = 0;
+			Iterator<Station> iterator = allStations.iterator();
+			while (allStations.get(numberOfStations - 1).getRoutes().length == allStations.get(numberOfStations + j).getRoutes().length 
+					&& iterator.hasNext()) {
+				
+				stationsWithMostRoutes.add(allStations.get(numberOfStations + j));
+				j++;
+			}
+		}
 		
 		for (Station station : stationsWithMostRoutes) {
 			System.out.println(station.getName() + ": " + station.getRoutes().length);

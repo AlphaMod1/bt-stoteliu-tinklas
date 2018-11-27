@@ -36,9 +36,15 @@ public class IntersectionsOfRoutes {
 		
 		int match = 0;
 		
+		String[] routesFromDbLower = new String[routesFromDb.length];
+
+		for (int j = 0; j < routesFromDb.length; j++) {
+			routesFromDbLower[j] = routesFromDb[j].toLowerCase();
+		}
+		
 		for (int i = 0; i < routesFromUser.length; i++) {
-			
-			if (Arrays.asList(routesFromDb).contains(routesFromUser[i])) {
+						
+			if (Arrays.asList(routesFromDbLower).contains(routesFromUser[i].toLowerCase())) {
 				match++;
 			}
 		}
