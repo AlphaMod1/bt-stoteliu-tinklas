@@ -24,7 +24,7 @@ public class TestIntersectionsOfRoutes {
 		assertEquals(22, target.findIntersectionsOfRoutes(new String[] {"Autobusas 2G: Stotis - Santariškės"}).size());
 		assertEquals(0, target.findIntersectionsOfRoutes(new String[] {"autobusas 6g: žaliasis tiltas - parko g.",
 				"Autobusas 49 Ateities g. - Didlaukio g. - Žalgirio g. - Lazdynai - Bukčiai"}).size());
-					
+							
 	}
 
 }
