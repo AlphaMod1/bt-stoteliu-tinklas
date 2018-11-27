@@ -9,6 +9,7 @@ import java.util.List;
 //import org.springframework.context.annotation.ComponentScan;
 
 import kodas.*;
+import lt.baltictalents.stoteliutinklas.data.beans.Station;
 
 //@SpringBootApplication
 //@ComponentScan(
@@ -33,6 +34,12 @@ public class Application {
     	InputGUI gui = new InputGUI();
     	
     	int UseGui = gui.UseNewGui();
+    	
+    	
+    	for(int i = 0; i < args.length; i++) {
+    		 System.out.println(args[i]);
+    		
+    	}
     	
 
     	if(UseGui == 0) {
@@ -93,10 +100,24 @@ public class Application {
         		IORlist = input.IORreader();
         		String[] arg = new String[IORlist.size()];
         		IORlist.toArray(arg);
-        		IOR.findIntersectionsOfRoutes(arg);
+        		for(int i = 0; i < arg.length; i++) {
+        			 
+            		System.out.println(arg[i]);
+        		}
+        		List<String> a = new ArrayList();
+        		a = IOR.findIntersectionsOfRoutes(arg);
+        		
+        		for(int i = 0; i < a.size(); i++) {
+        			 a.get(i);
+        			
+        		}
         	}
         	else {
         		System.out.println("Error: Crash in Input.java");
+        		System.out.println("         /\"*._         _");
+        		System.out.println("      .-*'`    `*-.._.-'/");
+        		System.out.println("    < * )) ERROR ,      ( ");
+        		System.out.println("     `*-._`._(__.--*\"`. \\");
         	}
         	System.out.println();
     		}
@@ -106,8 +127,10 @@ public class Application {
     	else if(UseGui == 1) {
     		boolean working = true;
     		int select = -2;
+    		int readfrom;
     		while(working) {
     			select = input.ShellAppSelect();
+    			readfrom = input.GetTxtFileSelect();
     			if(select == -2) {
     				System.exit(0);
     			}
@@ -118,7 +141,6 @@ public class Application {
     				System.out.println(nl+LongLine+nl+"Commands:"+nl+LongLine+nl+"AllStationsInArea(ASIA),"+nl+"StationsWithMostRoutes(SWMR),"+nl+
     						"FindNearestStotele(FNS),"+nl+"CoordinatesToStops(CTS),"+nl+"NameToStops(NTS), BusNrToStops(BNTS),"+nl+
     						"AllStationsInCircle(ASIC)"+nl+LongLine+nl);
-    				
     			}
     			else if(select == 1) {
     				
@@ -244,7 +266,6 @@ public class Application {
     				
     			}
     			else if(select == 7) {
-    				
     				double[] argumentai = {0,0,0,0};
     				if(input.GetShellArg().length == 5) {
     					try {
@@ -265,6 +286,10 @@ public class Application {
     				}
     				
     			}
+    			else if(select == 8) {
+    				
+    				
+    			}
     			else {
     				System.out.println("Error");
     			}
@@ -274,9 +299,9 @@ public class Application {
     	}
 
     	else if(UseGui == 2) {
-    		gui.v3Test();
-    		// 	gui.test();
-
+    		//gui.v3Test();
+    		gui.test();
+    		
     	}
     	else {
     		System.out.println("Error");
