@@ -49,6 +49,7 @@ public class IntersectionsOfRoutes {
 				
 				if (routesFromDb[j].equalsIgnoreCase(routesFromUser[i])) {
 					possibleMatch = 1;
+					break;
 				}
 				
 //				if (Arrays.asList(routesFromDb).contains(routesFromUser[i].toLowerCase())) {
