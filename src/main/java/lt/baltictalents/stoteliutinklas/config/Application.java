@@ -15,9 +15,12 @@ import lt.baltictalents.stoteliutinklas.data.beans.Station;
 //@ComponentScan(
 //	"lt.*"
 //)
+
 public class Application {
 
-    public static void main(String[] args) {
+    @SuppressWarnings("static-access")
+
+	public static void main(String[] args) {
     		
     	String LongLine = "=========================================";
     	String nl = System.getProperty("line.separator");
@@ -32,6 +35,9 @@ public class Application {
     	IntersectionsOfRoutes IOR = new IntersectionsOfRoutes();
     	Input input = new Input();
     	InputGUI gui = new InputGUI();
+    	TxtReader txtr = new TxtReader(); 
+    	
+    	
     	
     	int UseGui = gui.UseNewGui();
     	
@@ -55,7 +61,7 @@ public class Application {
         		upperLeftY = Input.rasykOfFindAllStations(1);
         		lowerRightX = Input.rasykOfFindAllStations(2);
         		lowerRightY = Input.rasykOfFindAllStations(3);
-        		ASIA.findAllStationsInArea(upperLeftX,upperLeftY,lowerRightX,lowerRightY);
+        		ASIA.findAllStationsInArea(upperLeftX,upperLeftY,lowerRightX,lowerRightY,null);
         	}
         	else if(javafile == 2){
         		double X, Y, r;
@@ -156,7 +162,7 @@ public class Application {
         					System.out.println(input.GetShellArg()[0]+" double, double, double, double");
     					}
 
-    					ASIA.findAllStationsInArea(argumentai[0], argumentai[1], argumentai[2], argumentai[3]);
+    					ASIA.findAllStationsInArea(argumentai[0], argumentai[1], argumentai[2], argumentai[3], null);
     				}
     				else {
     					System.out.println("Error: Invalid arg");
@@ -300,7 +306,10 @@ public class Application {
 
     	else if(UseGui == 2) {
     		//gui.v3Test();
-    		gui.test();
+    		//gui.test();
+    		
+    		
+    		System.out.println(txtr.readtxt());
     		
     	}
     	else {
