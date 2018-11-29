@@ -6,31 +6,28 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import lt.baltictalents.stoteliutinklas.data.beans.Station;
 import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class FindNearestStotele {
 
-	public String FindNearestStot(double lonA, double latA) {
-		
-		Input input = new Input();
-		HardCodedDb db = new HardCodedDb();
-
-		
-		double[] list = new double[db.getStoteles().size()];
+	public String FindNearestStot(double lonA, double latA, List<Station> readfrom) {
+			
+		double[] list = new double[readfrom.size()];
 		
 		
-		for(int i = 0; i < db.getStoteles().size(); i++) {
+		for(int i = 0; i < readfrom.size(); i++) {
 		double tempLat = 0;	
 		double tempLon = 0;
-		tempLat = Double.parseDouble(db.getStoteles().get(i).getLatitude());
-		tempLon = Double.parseDouble(db.getStoteles().get(i).getLongtitute());
+		tempLat = Double.parseDouble(readfrom.get(i).getLatitude());
+		tempLon = Double.parseDouble(readfrom.get(i).getLongtitute());
 		list[i]=(distance(latA,lonA,tempLat,tempLon,"K"));
 		//System.out.println(i+") "+roundas(list[i],2)+"km");
 		}
 		//System.out.println();
 		int index = getSmallest(list);
 		
-		String Ats = db.getStoteles().get(index).getName();
+		String Ats = readfrom.get(index).getName();
 		System.out.println("Artimiausia stotelë: " + Ats);
 		//System.out.println(roundas(list[index], 2)+"Km");
 		return Ats;

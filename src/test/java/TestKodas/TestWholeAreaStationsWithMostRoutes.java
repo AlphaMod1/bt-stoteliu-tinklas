@@ -17,10 +17,12 @@ public class TestWholeAreaStationsWithMostRoutes {
 	public void testFindWholeAreaStationsWithMostRoutes() {
 		
 		WholeAreaStationsWithMostRoutes target = new WholeAreaStationsWithMostRoutes();
+		
+		HardCodedDb db = new HardCodedDb();
 				
-		assertEquals(0, target.findWholeAreaStationsWithMostRoutes(0).size());
-		assertEquals(1, target.findWholeAreaStationsWithMostRoutes(1).size());
-		assertEquals(2, target.findWholeAreaStationsWithMostRoutes(2).size());
-		assertEquals(6, target.findWholeAreaStationsWithMostRoutes(3).size());
+		assertEquals(0, target.findWholeAreaStationsWithMostRoutes(0, db.getStoteles()).size());
+		assertEquals(1, target.findWholeAreaStationsWithMostRoutes(1, db.getStoteles()).size());
+		assertEquals(2, target.findWholeAreaStationsWithMostRoutes(2, db.getStoteles()).size());
+		assertEquals(6, target.findWholeAreaStationsWithMostRoutes(3, db.getStoteles()).size());
 	}
 }

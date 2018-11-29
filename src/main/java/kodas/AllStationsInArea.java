@@ -17,9 +17,8 @@ public class AllStationsInArea {
 		
 		List<Station> allStationsInArea = new ArrayList<Station>();
 		
-		HardCodedDb hardCodedDb = new HardCodedDb();
 		
-		List<Station> stations = hardCodedDb.getStoteles();
+		List<Station> stations = readFrom;
 						
 		for (Station station : stations) {
 			

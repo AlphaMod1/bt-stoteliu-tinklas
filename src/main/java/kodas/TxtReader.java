@@ -16,9 +16,7 @@ public class TxtReader {
 
 	public List<Station> readtxt() {
 		
-		List<Station> returnas = new ArrayList();
-		int i = 0;
-		String[] arr = new String[3];
+		List<Station> returnas = new ArrayList<Station>();
 		java.net.URL path = TxtReader.class.getResource("stoteles.txt");
 		File temp = new File(path.getFile());
 		String fileName = temp.toString();
@@ -26,20 +24,18 @@ public class TxtReader {
         String line = null;
 
         try {
-            FileReader fileReader = new FileReader(fileName);
 
             BufferedReader bufferedReader = new BufferedReader(
-         		   new InputStreamReader(
-                               new FileInputStream(fileName), "UTF8"));
+            new InputStreamReader(new FileInputStream(fileName), "UTF8"));
+         				   	
 
             while((line = bufferedReader.readLine()) != null) {
-                arr = line.split(", ");
-                for(int j = 0; j < 4; j++) {
-                //arr[j] = arr[j].replaceAll("\"", " ");
-                }
-              //  returnas.asList(arr[i]);
-                System.out.println(arr[i]);
-                i++;
+		        String[] data = line.split("\\,");
+		        for(int i = 0; i < 4; i++) {
+			        data[i] = data[i].replaceAll("\"", "");	
+		        }
+		        String[] keliai = data[3].split("\\;");
+		        returnas.add(new Station(data[0], data[1],data[2],keliai));
             }   
 
             bufferedReader.close();         
