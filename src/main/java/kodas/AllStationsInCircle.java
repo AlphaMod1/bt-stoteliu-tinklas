@@ -8,16 +8,14 @@ import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class AllStationsInCircle {
 
-	public List<Station> AllStationsInCircle(double X, double Y, double r) {
+	public List<Station> AllStationsInCircle(double X, double Y, double r, List<Station> readfrom) {
 		
 		Input input = new Input();
 		
 		
 		List<Station> allStationsInCircle = new ArrayList<Station>();
 		
-		HardCodedDb hardCodedDb = new HardCodedDb();
-		
-		List<Station> stations = hardCodedDb.getStoteles();
+		List<Station> stations = readfrom;
 						
 		for (Station station : stations) {
 			

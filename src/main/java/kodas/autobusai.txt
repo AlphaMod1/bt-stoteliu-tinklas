@@ -1,0 +1,92 @@
+"Autobusas 1","Stotis","Oro uostas"
+"Autobusas 2","Stotis","Oro uostas"
+"Autobusas 3","Stotis","Vaidotai"
+"Autobusas 4","Stotis","Kirtimai"
+"Autobusas 5","Pašilaičiai","Šiaurės miestelis"
+"Autobusas 7","Šiaurės miestelis","Lazdynai"
+"Autobusas 8","Žemieji Paneriai","Vaidotai"
+"Autobusas 9","Zuikių","Baltoji Vokė"
+"Autobusas 10","Fabijoniškės","Markučiai"
+"Autobusas 11","Žvėrynas","Užupis"
+"Autobusas 12","Stotis","Skaidiškės"
+"Autobusas 13","Žemasis Pavilnys","Vilkpėdė"
+"Autobusas 14","Rudamina","Arimų g."
+"Autobusas 15","Žolyno g.","Turniškės"
+"Autobusas 16","Stotis","Skaidiškės"
+"Autobusas 17","Antakalnis","Antaviliai"
+"Autobusas 18","Antakalnis","Parko g."
+"Autobusas 19","Stotis","Salininkai"
+"Autobusas 20","Žemieji Paneriai","Lazdynai"
+"Autobusas 21","Lazdynėliai","Centras"
+"Autobusas 22","Lazdynai","Centras"
+"Autobusas 23","Stotis","Lazdynai"
+"Autobusas 24","Fabijoniškės","Žemieji Paneriai"
+"Autobusas 25","Žemieji Paneriai","V. A. Graičiūno g."
+"Autobusas 26","Ozo","Didieji Gulbinai"
+"Autobusas 27","Kalvarijų g.","Arimų g."
+"Autobusas 28","Žemieji Paneriai","Valai"
+"Autobusas 29","Vilkpėdė","Grigiškės"
+"Autobusas 30","Pilaitė"," Šiaurės miestelis"
+"Autobusas 31","Stotis","Naujoji Vilnia"
+"Autobusas 32","Žvėrynas","Pašilaičiai"
+"Autobusas 33","Šiaurės miestelis","Guriai"
+"Autobusas 34","Stotis","Visoriai"
+"Autobusas 35","Žalgirio","Ožkiniai"
+"Autobusas 36","Žalgirio","Pagubė"
+"Autobusas 37","Kalvarijų","Rokantiškės"
+"Autobusas 38","Antakalnis","Šilėnų g."
+"Autobusas 39","Antakalnis","Balžio g."
+"Autobusas 40","Fabijoniškės","Centras"
+"Autobusas 41","Stotis","Užusienis"
+"Autobusas 42","Stotis","Salininkai"
+"Autobusas 43","Justiniškės","Centras"
+"Autobusas 46","Pašilaičiai","Centras"
+"Autobusas 48","Šeškinė","Santariškės"
+"Autobusas 49","Ateities","Bukčiai"
+"Autobusas 50","Antakalnis","Bajorai"
+"Autobusas 51","Žemieji Paneriai","Daniliškės"
+"Autobusas 52","Centras","Tarandė"
+"Autobusas 53","Fabijoniškės","Stotis"
+"Autobusas 54","Pilaitė","Stotis"
+"Autobusas 55","Lazdynai","Santariškės"
+"Autobusas 56","Fabijoniškės"," Centras"
+"Autobusas 57","Fabijoniškės","Bajorai"
+"Autobusas 58","Stotis","Grigaičiai"
+"Autobusas 59","Grigiškės","Žvėrynas"
+"Autobusas 61","Stotis","Kuprioniškės"
+"Autobusas 62","Žemieji Paneriai","Lazdynai"
+"Autobusas 63","Žvėrynas","Karveliškės"
+"Autobusas 65","Ožkiniai","Pagubė"
+"Autobusas 66","Žalgirio","Skirgiškės"
+"Autobusas 67","Parko","Mickūnai"
+"Autobusas 68","Lazdynai","Grigiškės"
+"Autobusas 69","Ateities","Šiltnamių g."
+"Autobusas 73","Justiniškės","Vilkpėdė"
+"Autobusas 74","Stotis","Parko g."
+"Autobusas 75","Santariškės","Pilaitė"
+"Autobusas 76","Ateities"," Bireliai"
+"Autobusas 78","Stotis","Pagiriai"
+"Autobusas 82","Stotis","Juodšiliai"
+"Autobusas 87","Ateities g.","Šeškinė"
+"Autobusas 88","Oro uostas","Europos aikštė"
+"Autobusas 89","Nepriklausomybės aikštė","Stotis"
+"Autobusas 114","Šiaurės miestelis","Vinciūniškės"
+"Autobusas 115","Antakalnis","Parko g."
+"Autobusas 116","Žvėrynas","Ungurių g."
+"Troleibusas 1","Karoliniškės","Stotis
+"Troleibusas 2","Saulėtekis","Stotis
+"Troleibusas 3","Karoliniškės","Šeimyniškių g.
+"Troleibusas 4","Antakalnis","Žemieji Paneriai
+"Troleibusas 6","Žirmūnai","Žemieji Paneriai
+"Troleibusas 7","Pašilaičiai","Stotis
+"Troleibusas 9","Karoliniškės","Šiaurės miestelis
+"Troleibusas 10","Saulėtekis","Naujininkai
+"Troleibusas 12","Žirmūnai","Žemieji Paneriai
+"Troleibusas 13","Pašilaičiai","Žemieji Paneriai
+"Troleibusas 14","Saulėtekis","Gerosios Vilties st.
+"Troleibusas 15","Stotis","Stotis
+"Troleibusas 17","Žirmūnai","Naujininkai
+"Troleibusas 18","Pašilaičiai","Titnago g.
+"Troleibusas 19","Pašilaičiai","Saulėtekis
+"Troleibusas 20","Žirmūnai","Stotis
+"Troleibusas 21","Saulėtekis","Žirmūnai

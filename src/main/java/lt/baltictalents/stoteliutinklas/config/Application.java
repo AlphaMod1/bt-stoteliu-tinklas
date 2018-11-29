@@ -10,14 +10,18 @@ import java.util.List;
 
 import kodas.*;
 import lt.baltictalents.stoteliutinklas.data.beans.Station;
+import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 //@SpringBootApplication
 //@ComponentScan(
 //	"lt.*"
 //)
+
 public class Application {
 
-    public static void main(String[] args) {
+    @SuppressWarnings("static-access")
+
+	public static void main(String[] args) {
     		
     	String LongLine = "=========================================";
     	String nl = System.getProperty("line.separator");
@@ -32,16 +36,16 @@ public class Application {
     	IntersectionsOfRoutes IOR = new IntersectionsOfRoutes();
     	Input input = new Input();
     	InputGUI gui = new InputGUI();
+    	TxtReader txtr = new TxtReader(); 
+    	HardCodedDb db = new HardCodedDb();
     	
+    	List<Station> fromDB = db.getStoteles();
+    	List<Station> fromTXT = txtr.readtxt();
+    	
+    	int ReadFrom = gui.ReadFrom();
     	int UseGui = gui.UseNewGui();
     	
     	
-    	for(int i = 0; i < args.length; i++) {
-    		 System.out.println(args[i]);
-    		
-    	}
-    	
-
     	if(UseGui == 0) {
     		boolean working = true;
     		while(working) {
@@ -55,37 +59,69 @@ public class Application {
         		upperLeftY = Input.rasykOfFindAllStations(1);
         		lowerRightX = Input.rasykOfFindAllStations(2);
         		lowerRightY = Input.rasykOfFindAllStations(3);
-        		ASIA.findAllStationsInArea(upperLeftX,upperLeftY,lowerRightX,lowerRightY);
+        		if(ReadFrom == 0) {
+        			ASIA.findAllStationsInArea(upperLeftX,upperLeftY,lowerRightX,lowerRightY,fromDB);
+        		}
+        		else {
+        			ASIA.findAllStationsInArea(upperLeftX,upperLeftY,lowerRightX,lowerRightY,fromTXT);
+        		}
         	}
         	else if(javafile == 2){
         		double X, Y, r;
         		Y = Input.rasykOfFindAllStations(0);
         		X = Input.rasykOfFindAllStations(1);
         		r = Input.rasykOfFindAllStations(4);
-        		ASIC.AllStationsInCircle(X, Y, r);
+        		if(ReadFrom == 0) {
+            		ASIC.AllStationsInCircle(X, Y, r, fromDB);
+        		}
+        		else {
+            		ASIC.AllStationsInCircle(X, Y, r, fromTXT);
+        		}
         	}
         	else if(javafile == 3){
         		input.GetBusName();
         		boolean autobusas = input.ArCiaAutobusas;
         		String Name = input.AutobusoNumeris;
-        		BNTS.busnrtostops(autobusas, Name);
+        		if(ReadFrom == 0) {
+            		BNTS.busnrtostops(autobusas, Name, fromDB);
+        		}
+        		else {
+            		BNTS.busnrtostops(autobusas, Name, fromTXT);
+        		}
         	}
         	else if(javafile == 4){
         		double latA, lonA;
         		lonA = input.GetCoord(0);
         		latA = input.GetCoord(1);
-        		CTS.coordinatesTostops(lonA, latA);
+        		if(ReadFrom == 0) {
+            		CTS.coordinatesTostops(lonA, latA, fromDB);
+        		}
+        		else {
+            		CTS.coordinatesTostops(lonA, latA, fromTXT);
+        		}
+
         	}
         	else if(javafile == 5){
         		double latA, lonA;
         		lonA = input.GetCoord(0);
         		latA = input.GetCoord(1);
-        		FNS.FindNearestStot(latA,lonA);
+        		if(ReadFrom == 0) {
+            		FNS.FindNearestStot(latA,lonA, fromDB);
+        		}
+        		else {
+            		FNS.FindNearestStot(latA,lonA, fromTXT);
+        		}
+
         	}
         	else if(javafile == 6){
         		String Name = "";
         		Name = input.GetNameIn();
-        		NTS.nametostops(Name);
+        		if(ReadFrom == 0) {
+            		NTS.nametostops(Name, fromDB);
+        		}
+        		else {
+            		NTS.nametostops(Name, fromTXT);
+        		}
         	}
         	else if(javafile == 7){
         		double uX, uY, lX, lY;
@@ -93,9 +129,15 @@ public class Application {
         		uY = Input.rasykOfFindAllStations(1);
         		lX = Input.rasykOfFindAllStations(2);
         		lY = Input.rasykOfFindAllStations(3);
-        		SWMR.findStationsWithMostRoutes(uX, uY, lX, lY);
+        		if(ReadFrom == 0) {
+            		SWMR.findStationsWithMostRoutes(uX, uY, lX, lY, fromDB);
+        		}
+        		else {
+            		SWMR.findStationsWithMostRoutes(uX, uY, lX, lY, fromTXT);
+        		}
+
         	}
-        	else if(javafile == 8) {
+        	else if(javafile == 8) { // work in progress
         		List<String> IORlist = new ArrayList();
         		IORlist = input.IORreader();
         		String[] arg = new String[IORlist.size()];
@@ -105,7 +147,7 @@ public class Application {
             		System.out.println(arg[i]);
         		}
         		List<String> a = new ArrayList();
-        		a = IOR.findIntersectionsOfRoutes(arg);
+        		a = IOR.findIntersectionsOfRoutes(arg, fromDB);
         		
         		for(int i = 0; i < a.size(); i++) {
         			 a.get(i);
@@ -155,8 +197,12 @@ public class Application {
     						System.out.println("Error: Invalid arg");
         					System.out.println(input.GetShellArg()[0]+" double, double, double, double");
     					}
-
-    					ASIA.findAllStationsInArea(argumentai[0], argumentai[1], argumentai[2], argumentai[3]);
+    					if(ReadFrom == 0) {
+        					ASIA.findAllStationsInArea(argumentai[0], argumentai[1], argumentai[2], argumentai[3], fromDB);
+    					}
+    					else {
+        					ASIA.findAllStationsInArea(argumentai[0], argumentai[1], argumentai[2], argumentai[3], fromTXT);
+    					}
     				}
     				else {
     					System.out.println("Error: Invalid arg");
@@ -178,8 +224,12 @@ public class Application {
     						System.out.println("Error: Invalid arg");
         					System.out.println(input.GetShellArg()[0]+" double, double, double");
     					}
-
-    					ASIC.AllStationsInCircle(argumentai[1], argumentai[0], argumentai[2]);
+    					if(ReadFrom == 0) {
+        					ASIC.AllStationsInCircle(argumentai[1], argumentai[0], argumentai[2], fromDB);	
+    					}
+    					else {
+        					ASIC.AllStationsInCircle(argumentai[1], argumentai[0], argumentai[2], fromTXT);
+    					}
     				}
     				else {
     					System.out.println("Error: Invalid arg");
@@ -192,10 +242,20 @@ public class Application {
     				if(input.GetShellArg().length == 3) {
     					if(input.GetShellArg()[1].equalsIgnoreCase("-a") || input.GetShellArg()[1].equalsIgnoreCase("-t")) {
     						if(input.GetShellArg()[1].equalsIgnoreCase("-a")) {
-    							BNTS.busnrtostops(true, input.GetShellArg()[2]);
+    							if(ReadFrom == 0) {
+    								BNTS.busnrtostops(true, input.GetShellArg()[2], fromDB);
+    							}
+    							else {
+    								BNTS.busnrtostops(true, input.GetShellArg()[2], fromTXT);
+    							}
     						}
     						else {
-    							BNTS.busnrtostops(false, input.GetShellArg()[2]);
+    							if(ReadFrom == 0) {
+    								BNTS.busnrtostops(false, input.GetShellArg()[2], fromDB);
+    							}
+    							else {
+    								BNTS.busnrtostops(false, input.GetShellArg()[2], fromTXT);
+    							}
     						}
     					}
     					else {
@@ -223,8 +283,12 @@ public class Application {
     						System.out.println("Error: Invalid arg");
         					System.out.println(input.GetShellArg()[0]+" double, double");
     					}
-
-    					CTS.coordinatesTostops(argumentai[0], argumentai[1]);
+    					if(ReadFrom == 0) {
+        					CTS.coordinatesTostops(argumentai[0], argumentai[1], fromDB);
+    					}
+    					else {
+        					CTS.coordinatesTostops(argumentai[0], argumentai[1], fromTXT);
+    					}
     				}
     				else {
     					System.out.println("Error: Invalid arg");
@@ -245,8 +309,12 @@ public class Application {
     						System.out.println("Error: Invalid arg");
         					System.out.println(input.GetShellArg()[0]+" double, double");
     					}
-
-    					FNS.FindNearestStot(argumentai[0], argumentai[1]);
+    					if(ReadFrom == 0) {
+        					FNS.FindNearestStot(argumentai[0], argumentai[1], fromDB);
+    					}
+    					else {
+        					FNS.FindNearestStot(argumentai[0], argumentai[1], fromTXT);
+    					}
     				}
     				else {
     					System.out.println("Error: Invalid arg");
@@ -257,7 +325,12 @@ public class Application {
     			else if(select == 6) {
     				
     				if(input.GetShellArg().length > 1) {
-    					NTS.nametostops(input.GetShellArgForNTS()[1]);
+    					if(ReadFrom == 0) {
+        					NTS.nametostops(input.GetShellArgForNTS()[1], fromDB);
+    					}
+    					else {
+        					NTS.nametostops(input.GetShellArgForNTS()[1], fromTXT);
+    					}
     				}
     				else {
     					System.out.println("Error: Invalid arg");
@@ -277,8 +350,12 @@ public class Application {
     						System.out.println("Error: Invalid arg");
         					System.out.println(input.GetShellArg()[0]+" double, double, double, double");
     					}
-
-    					SWMR.findStationsWithMostRoutes(argumentai[1], argumentai[0], argumentai[3], argumentai[2]);
+    					if(ReadFrom == 0) {
+    						SWMR.findStationsWithMostRoutes(argumentai[1], argumentai[0], argumentai[3], argumentai[2], fromDB);
+    					}
+    					else {
+    						SWMR.findStationsWithMostRoutes(argumentai[1], argumentai[0], argumentai[3], argumentai[2], fromTXT);
+    					}
     				}
     				else {
     					System.out.println("Error: Invalid arg");
@@ -288,7 +365,7 @@ public class Application {
     			}
     			else if(select == 8) {
     				
-    				
+    				System.out.println("work in progress");
     			}
     			else {
     				System.out.println("Error");
@@ -300,7 +377,10 @@ public class Application {
 
     	else if(UseGui == 2) {
     		//gui.v3Test();
-    		gui.test();
+    		//gui.test();
+    		
+    		ASIA.findAllStationsInArea(25.2807679, 54.7553245, 25.2692819, 54.6895504, fromTXT);
+    		
     		
     	}
     	else {

@@ -23,20 +23,20 @@ public class TestStationsWithMostRoutes {
 		List<Station> testList1 = new ArrayList<Station>();
 		List<Station> testList2 = new ArrayList<Station>();
 		
-		Station station1 = new Station("Vaikų ligoninė", "25.2807679", "54.7553245",
-				new String[]{"Autobusas 2G: Stotis - Santariškės", 
-						"Autobusas 48 Santariškės - Laisvės pr. - Šeškinė", 
-						"Autobusas 75 Pilaitė - S. Stanevičiaus g. - Santariškės"});
+		Station station1 = new Station("VaikÅ³ ligoninÄ—", "25.2807679", "54.7553245",
+				new String[]{"Autobusas 2G: Stotis - SantariÅ�kÄ—s", 
+						"Autobusas 48 SantariÅ�kÄ—s - LaisvÄ—s pr. - Å eÅ�kinÄ—", 
+						"Autobusas 75 PilaitÄ— - S. StaneviÄ¨iaus g. - SantariÅ�kÄ—s"});
 		
-		Station station2 = new Station("Vaikų ligoninė", "25.2807679", "54.7553245",
-				new String[]{"Autobusas 2G: Stotis - Santariškės", 
-						"Autobusas 48 Santariškės - Laisvės pr. - Šeškinė"});
+		Station station2 = new Station("VaikÅ³ ligoninÄ—", "25.2807679", "54.7553245",
+				new String[]{"Autobusas 2G: Stotis - SantariÅ�kÄ—s", 
+						"Autobusas 48 SantariÅ�kÄ—s - LaisvÄ—s pr. - Å eÅ�kinÄ—"});
 		
 		testList2.add(station1);
 		
-		assertEquals(testList1, target.findStationsWithMostRoutes(0, 0, 0, 0));
-		assertEquals("Bernardinų sodas", target.findStationsWithMostRoutes(25.2905741,54.6847849,25.2905741,54.6847849).get(0).getName());
-		assertEquals(testList2.size(), target.findStationsWithMostRoutes(25.2807679, 54.7553245, 25.2807679, 54.7553245).size());
+		assertEquals(testList1, target.findStationsWithMostRoutes(0, 0, 0, 0, db.getStoteles()));
+		assertEquals("BernardinÅ³ sodas", target.findStationsWithMostRoutes(25.2905741,54.6847849,25.2905741,54.6847849, db.getStoteles()).get(0).getName());
+		assertEquals(testList2.size(), target.findStationsWithMostRoutes(25.2807679, 54.7553245, 25.2807679, 54.7553245, db.getStoteles()).size());
 		assertTrue(target.comparatorByRoutes.compare(station1, station2) < 0);
 
 	}

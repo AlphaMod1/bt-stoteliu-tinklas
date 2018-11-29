@@ -22,11 +22,10 @@ public class WholeAreaStationsWithMostRoutes {
 		
 	};
 		
-	public List<Station> findWholeAreaStationsWithMostRoutes(int numberOfStations) {
+	public List<Station> findWholeAreaStationsWithMostRoutes(int numberOfStations, List<Station> readfrom) {
 		
 		List<Station> stationsWithMostRoutes = new ArrayList<Station>();
-		HardCodedDb hardCodedDb = new HardCodedDb();
-		List<Station> allStations = hardCodedDb.getStoteles();
+		List<Station> allStations = readfrom;
 		
 		allStations.sort(comparatorByRoutes);
 		
