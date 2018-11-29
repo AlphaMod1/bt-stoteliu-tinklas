@@ -9,11 +9,10 @@ import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class IntersectionsOfRoutes {
 	
-	public List<String> findIntersectionsOfRoutes(String[] routes) {
+	public List<String> findIntersectionsOfRoutes(String[] routes, List<Station> readfrom) {
 		
 		List<String> stationsOfIntersections = new ArrayList<String>();
-		HardCodedDb hardCodedDb = new HardCodedDb();
-		List<Station> allStations = hardCodedDb.getStoteles();
+		List<Station> allStations = readfrom;
 
 		for (Station station : allStations) {
 			

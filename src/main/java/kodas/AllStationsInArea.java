@@ -8,7 +8,7 @@ import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class AllStationsInArea {
 
-	public List<Station> findAllStationsInArea(double upperLeftY, double upperLeftX, double lowerRightY, double lowerRightX) {
+	public List<Station> findAllStationsInArea(double upperLeftY, double upperLeftX, double lowerRightY, double lowerRightX, List<Station> readFrom) {
 		
 		Input input = new Input();
 		
@@ -17,9 +17,8 @@ public class AllStationsInArea {
 		
 		List<Station> allStationsInArea = new ArrayList<Station>();
 		
-		HardCodedDb hardCodedDb = new HardCodedDb();
 		
-		List<Station> stations = hardCodedDb.getStoteles();
+		List<Station> stations = readFrom;
 						
 		for (Station station : stations) {
 			

@@ -16,6 +16,17 @@ public class InputGUI {
 	}
 	
 	
+	public int ReadFrom() {
+		
+		Object[] options = {"HardCodedDb.java", "stoteles.txt"};
+		int Ats = JOptionPane.showOptionDialog(null, "From what file to read?", "Select",
+		JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
+		null, options, options[0]);
+		
+		return Ats;
+	}
+	
+	
 	public String v3Test() {
 		
 		String iv = JOptionPane.showInputDialog("WORK IN PROGRESS");

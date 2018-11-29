@@ -211,15 +211,6 @@ public class Input {
 			String arr[] = Ats.split(" ");
 			String NTSarr[] = Ats.split(" ", 2);
 			
-//			if(arr[1].equalsIgnoreCase("marsrutai.txt") || arr[1].equalsIgnoreCase("-m")) {
-//				useTxt = 1;
-//			}
-//			else if(arr[1].equalsIgnoreCase("stoteles.txt") || arr[1].equalsIgnoreCase("-s")) {
-//				useTxt = 2;
-//			}
-//			else if(arr[1].equalsIgnoreCase("hardcideddb.java") || arr[1].equalsIgnoreCase("-h")) {
-//				useTxt = 0;
-//			}
 			if(arr[0].equalsIgnoreCase("help") || arr[0].equalsIgnoreCase("?")) {
 				temp = 0;
 			}
