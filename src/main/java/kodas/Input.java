@@ -243,6 +243,9 @@ public class Input {
 				else if(arr[0].equalsIgnoreCase("IntersectionsOfRoutes") || arr[0].equalsIgnoreCase("IOR")) {
 					temp = 8;
 				}
+				else if(arr[0].equalsIgnoreCase("mkdb") || arr[0].equalsIgnoreCase("makedb")){
+					temp = 100;
+				}
 				else {
 					temp = -1;
 				}

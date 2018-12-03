@@ -24,6 +24,7 @@ public class Shell {
     	InputGUI gui = new InputGUI();
     	TxtReader txtr = new TxtReader(); 
     	HardCodedDb db = new HardCodedDb();
+    	makedb mkd = new makedb();
     	
     	List<Station> fromDB = db.getStoteles();
     	List<Station> fromTXT = txtr.readtxt();
@@ -353,6 +354,34 @@ public class Shell {
     				
     				System.out.println("work in progress");
     			}
+    			else if(select == 100) {
+    				if(input.GetShellArg().length == 2) {
+    					if(input.GetShellArg()[1].equalsIgnoreCase("-n")) {
+        					
+        				}
+        				else if(input.GetShellArg()[1].equalsIgnoreCase("-d")) {
+        					
+        				}
+        				else {
+        					System.out.println("Error: Invalid arg");
+        				}
+    				}
+    				else if(input.GetShellArg().length == 1) {
+    					
+    				}
+    				else {
+    					if(input.GetShellArg()[1].equalsIgnoreCase("-n")) {
+        					
+        				}
+        				else if(input.GetShellArg()[1].equalsIgnoreCase("-d")) {
+        					
+        				}
+        				else {
+        					System.out.println("Error: Invalid arg");
+        				}
+    				}
+    				
+    			}
     			else {
     				System.out.println("Error");
     			}
@@ -365,9 +394,9 @@ public class Shell {
     		//gui.v3Test();
     		//gui.test();
     		
-    		ASIA.findAllStationsInArea(25.2807679, 54.7553245, 25.2692819, 54.6895504, fromTXT);
+    		System.out.println(System.getProperty("user.dir"));
     		
-    		
+    		mkd.mkdb("a.db");
     	}
     	else {
     		System.out.println("Error");
