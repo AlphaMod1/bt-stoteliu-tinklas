@@ -34,18 +34,33 @@ public class IntersectionsOfRoutes {
 	private boolean checkIfAllRoutesGoThroughStation(String[] routesFromUser, String[] routesFromDb) {
 		
 		int match = 0;
+		int possibleMatch = 0;
 		
-		String[] routesFromDbLower = new String[routesFromDb.length];
+//		String[] routesFromDbLower = new String[routesFromDb.length];
 
-		for (int j = 0; j < routesFromDb.length; j++) {
-			routesFromDbLower[j] = routesFromDb[j].toLowerCase();
-		}
+//		for (int j = 0; j < routesFromDb.length; j++) {
+//			routesFromDbLower[j] = routesFromDb[j].toLowerCase();
+//		}
 		
 		for (int i = 0; i < routesFromUser.length; i++) {
 						
-			if (Arrays.asList(routesFromDbLower).contains(routesFromUser[i].toLowerCase())) {
+			for (int j = 0; j < routesFromDb.length; j++) {
+				
+				if (routesFromDb[j].equalsIgnoreCase(routesFromUser[i])) {
+					possibleMatch = 1;
+					break;
+				}
+				
+//				if (Arrays.asList(routesFromDb).contains(routesFromUser[i].toLowerCase())) {
+//					match++;
+//				}
+			}
+			
+			if (possibleMatch == 1) {
 				match++;
 			}
+			
+			possibleMatch = 0;
 		}
 		
 		if (match == routesFromUser.length) {
