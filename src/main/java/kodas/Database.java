@@ -21,7 +21,7 @@ import lt.baltictalents.stoteliutinklas.data.beans.Station;
 
 public class Database {
 
-	private Connection prepareDatabase(String fileName) throws SQLException {
+	public Connection prepareDatabase(String fileName) throws SQLException {
 		try (Stream<Path> paths = Files.walk(Paths.get("src/main/java/kodas/"))) {
 			List<String> dbFileNames = paths.filter(Files::isRegularFile).map(file -> file.getFileName().toString())
 					.filter(name -> name.substring(name.length() - 3).equals(".db")).collect(Collectors.toList());
@@ -162,29 +162,5 @@ public class Database {
 		return stations;
 	}
 
-	public static void main(String[] args) throws SQLException {
-		Database db = new Database();
-		Connection conn = null;
-
-		try {
-			conn = db.prepareDatabase("testinimas2.db");
-
-			List<Route> routes = db.getRoutes(conn);
-			System.out.println(Arrays.toString(routes.toArray()));
-
-			List<Station> stations = db.getStations(conn);
-			Station testStation = stations.get(0);
-			System.out.println(testStation.getName() + " " + testStation.getLatitude() + " "
-					+ testStation.getLongtitute() + " " + Arrays.toString(testStation.getRoutes()));
-			;
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			if (conn != null) {
-				conn.close();
-			}
-		}
-	}
+	
 }
