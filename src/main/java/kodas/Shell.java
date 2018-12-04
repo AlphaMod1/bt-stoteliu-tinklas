@@ -24,8 +24,9 @@ public class Shell {
     	InputGUI gui = new InputGUI();
     	TxtReader txtr = new TxtReader(); 
     	HardCodedDb db = new HardCodedDb();
-    	makedb mkd = new makedb();
+  
     	
+    	List<Station> fromJAVA = db.getStoteles();
     	List<Station> fromDB = db.getStoteles();
     	List<Station> fromTXT = txtr.readtxt();
     	
@@ -47,7 +48,7 @@ public class Shell {
         		lowerRightX = Input.rasykOfFindAllStations(2);
         		lowerRightY = Input.rasykOfFindAllStations(3);
         		if(ReadFrom == 0) {
-        			ASIA.findAllStationsInArea(upperLeftX,upperLeftY,lowerRightX,lowerRightY,fromDB);
+        			ASIA.findAllStationsInArea(upperLeftX,upperLeftY,lowerRightX,lowerRightY,fromJAVA);
         		}
         		else {
         			ASIA.findAllStationsInArea(upperLeftX,upperLeftY,lowerRightX,lowerRightY,fromTXT);
@@ -59,7 +60,7 @@ public class Shell {
         		X = Input.rasykOfFindAllStations(1);
         		r = Input.rasykOfFindAllStations(4);
         		if(ReadFrom == 0) {
-            		ASIC.AllStationsInCircle(X, Y, r, fromDB);
+            		ASIC.AllStationsInCircle(X, Y, r, fromJAVA);
         		}
         		else {
             		ASIC.AllStationsInCircle(X, Y, r, fromTXT);
@@ -70,7 +71,7 @@ public class Shell {
         		boolean autobusas = input.ArCiaAutobusas;
         		String Name = input.AutobusoNumeris;
         		if(ReadFrom == 0) {
-            		BNTS.busnrtostops(autobusas, Name, fromDB);
+            		BNTS.busnrtostops(autobusas, Name, fromJAVA);
         		}
         		else {
             		BNTS.busnrtostops(autobusas, Name, fromTXT);
@@ -81,7 +82,7 @@ public class Shell {
         		lonA = input.GetCoord(0);
         		latA = input.GetCoord(1);
         		if(ReadFrom == 0) {
-            		CTS.coordinatesTostops(lonA, latA, fromDB);
+            		CTS.coordinatesTostops(lonA, latA, fromJAVA);
         		}
         		else {
             		CTS.coordinatesTostops(lonA, latA, fromTXT);
@@ -93,7 +94,7 @@ public class Shell {
         		lonA = input.GetCoord(0);
         		latA = input.GetCoord(1);
         		if(ReadFrom == 0) {
-            		FNS.FindNearestStot(latA,lonA, fromDB);
+            		FNS.FindNearestStot(latA,lonA, fromJAVA);
         		}
         		else {
             		FNS.FindNearestStot(latA,lonA, fromTXT);
@@ -104,7 +105,7 @@ public class Shell {
         		String Name = "";
         		Name = input.GetNameIn();
         		if(ReadFrom == 0) {
-            		NTS.nametostops(Name, fromDB);
+            		NTS.nametostops(Name, fromJAVA);
         		}
         		else {
             		NTS.nametostops(Name, fromTXT);
@@ -117,7 +118,7 @@ public class Shell {
         		lX = Input.rasykOfFindAllStations(2);
         		lY = Input.rasykOfFindAllStations(3);
         		if(ReadFrom == 0) {
-            		SWMR.findStationsWithMostRoutes(uX, uY, lX, lY, fromDB);
+            		SWMR.findStationsWithMostRoutes(uX, uY, lX, lY, fromJAVA);
         		}
         		else {
             		SWMR.findStationsWithMostRoutes(uX, uY, lX, lY, fromTXT);
@@ -134,7 +135,7 @@ public class Shell {
             		System.out.println(arg[i]);
         		}
         		List<String> a = new ArrayList();
-        		a = IOR.findIntersectionsOfRoutes(arg, fromDB);
+        		a = IOR.findIntersectionsOfRoutes(arg, fromJAVA);
         		
         		for(int i = 0; i < a.size(); i++) {
         			 a.get(i);
@@ -185,7 +186,7 @@ public class Shell {
         					System.out.println(input.GetShellArg()[0]+" double, double, double, double");
     					}
     					if(ReadFrom == 0) {
-        					ASIA.findAllStationsInArea(argumentai[0], argumentai[1], argumentai[2], argumentai[3], fromDB);
+        					ASIA.findAllStationsInArea(argumentai[0], argumentai[1], argumentai[2], argumentai[3], fromJAVA);
     					}
     					else {
         					ASIA.findAllStationsInArea(argumentai[0], argumentai[1], argumentai[2], argumentai[3], fromTXT);
@@ -212,7 +213,7 @@ public class Shell {
         					System.out.println(input.GetShellArg()[0]+" double, double, double");
     					}
     					if(ReadFrom == 0) {
-        					ASIC.AllStationsInCircle(argumentai[1], argumentai[0], argumentai[2], fromDB);	
+        					ASIC.AllStationsInCircle(argumentai[1], argumentai[0], argumentai[2], fromJAVA);	
     					}
     					else {
         					ASIC.AllStationsInCircle(argumentai[1], argumentai[0], argumentai[2], fromTXT);
@@ -230,7 +231,7 @@ public class Shell {
     					if(input.GetShellArg()[1].equalsIgnoreCase("-a") || input.GetShellArg()[1].equalsIgnoreCase("-t")) {
     						if(input.GetShellArg()[1].equalsIgnoreCase("-a")) {
     							if(ReadFrom == 0) {
-    								BNTS.busnrtostops(true, input.GetShellArg()[2], fromDB);
+    								BNTS.busnrtostops(true, input.GetShellArg()[2], fromJAVA);
     							}
     							else {
     								BNTS.busnrtostops(true, input.GetShellArg()[2], fromTXT);
@@ -238,7 +239,7 @@ public class Shell {
     						}
     						else {
     							if(ReadFrom == 0) {
-    								BNTS.busnrtostops(false, input.GetShellArg()[2], fromDB);
+    								BNTS.busnrtostops(false, input.GetShellArg()[2], fromJAVA);
     							}
     							else {
     								BNTS.busnrtostops(false, input.GetShellArg()[2], fromTXT);
@@ -271,7 +272,7 @@ public class Shell {
         					System.out.println(input.GetShellArg()[0]+" double, double");
     					}
     					if(ReadFrom == 0) {
-        					CTS.coordinatesTostops(argumentai[0], argumentai[1], fromDB);
+        					CTS.coordinatesTostops(argumentai[0], argumentai[1], fromJAVA);
     					}
     					else {
         					CTS.coordinatesTostops(argumentai[0], argumentai[1], fromTXT);
@@ -297,7 +298,7 @@ public class Shell {
         					System.out.println(input.GetShellArg()[0]+" double, double");
     					}
     					if(ReadFrom == 0) {
-        					FNS.FindNearestStot(argumentai[0], argumentai[1], fromDB);
+        					FNS.FindNearestStot(argumentai[0], argumentai[1], fromJAVA);
     					}
     					else {
         					FNS.FindNearestStot(argumentai[0], argumentai[1], fromTXT);
@@ -313,7 +314,7 @@ public class Shell {
     				
     				if(input.GetShellArg().length > 1) {
     					if(ReadFrom == 0) {
-        					NTS.nametostops(input.GetShellArgForNTS()[1], fromDB);
+        					NTS.nametostops(input.GetShellArgForNTS()[1], fromJAVA);
     					}
     					else {
         					NTS.nametostops(input.GetShellArgForNTS()[1], fromTXT);
@@ -338,7 +339,7 @@ public class Shell {
         					System.out.println(input.GetShellArg()[0]+" double, double, double, double");
     					}
     					if(ReadFrom == 0) {
-    						SWMR.findStationsWithMostRoutes(argumentai[1], argumentai[0], argumentai[3], argumentai[2], fromDB);
+    						SWMR.findStationsWithMostRoutes(argumentai[1], argumentai[0], argumentai[3], argumentai[2], fromJAVA);
     					}
     					else {
     						SWMR.findStationsWithMostRoutes(argumentai[1], argumentai[0], argumentai[3], argumentai[2], fromTXT);
@@ -396,7 +397,7 @@ public class Shell {
     		
     		System.out.println(System.getProperty("user.dir"));
     		
-    		mkd.mkdb("a.db");
+    	
     	}
     	else {
     		System.out.println("Error");
