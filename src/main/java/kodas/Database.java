@@ -21,7 +21,7 @@ import lt.baltictalents.stoteliutinklas.data.beans.Station;
 
 public class Database {
 
-	public Connection prepareDatabase(String fileName) throws SQLException {
+	public Connection prepareDatabase(String fileName) throws SQLException, ClassNotFoundException {
 		try (Stream<Path> paths = Files.walk(Paths.get("src/main/java/kodas/"))) {
 			List<String> dbFileNames = paths.filter(Files::isRegularFile).map(file -> file.getFileName().toString())
 					.filter(name -> name.substring(name.length() - 3).equals(".db")).collect(Collectors.toList());
@@ -39,6 +39,7 @@ public class Database {
 				System.out.println("Creating new Database: " + fileName);
 
 				String url = "jdbc:sqlite:src/main/java/kodas/" + fileName.trim();
+				Class.forName("org.sqlite.JDBC");
 				Connection connection = DriverManager.getConnection(url);
 
 				System.out.println("Connection to SQLite has been established.");

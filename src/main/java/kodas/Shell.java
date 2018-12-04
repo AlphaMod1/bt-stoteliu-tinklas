@@ -12,7 +12,7 @@ import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class Shell {
     @SuppressWarnings("static-access")
-	public void ShellStart() throws SQLException {
+	public void ShellStart() throws SQLException, ClassNotFoundException {
 		String LongLine = "=========================================";
     	String nl = System.getProperty("line.separator");
     	
@@ -31,7 +31,7 @@ public class Shell {
   
     	
     	List<Station> fromJAVA = db.getStoteles();
-    	List<Station> fromDB = db.getStoteles();
+    //	List<Station> fromDB = db.getStoteles();
     	List<Station> fromTXT = txtr.readtxt();
     	
     	int ReadFrom = gui.ReadFrom();
