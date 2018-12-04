@@ -18,7 +18,7 @@ public class InputGUI {
 	
 	public int ReadFrom() {
 		
-		Object[] options = {"HardCodedDb.java", "stoteles.txt"};
+		Object[] options = {"HardCodedDb.java", "stoteles.txt", "Data Base"};
 		int Ats = JOptionPane.showOptionDialog(null, "From what file to read?", "Select",
 		JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
 		null, options, options[0]);
