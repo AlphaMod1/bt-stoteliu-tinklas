@@ -1,4 +1,4 @@
-package kodas;
+package Functions;
 
 import java.util.ArrayList;
 import java.util.Arrays;

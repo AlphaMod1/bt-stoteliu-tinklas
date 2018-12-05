@@ -1,4 +1,4 @@
-package kodas;
+package Functions;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

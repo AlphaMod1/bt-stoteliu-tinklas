@@ -3,12 +3,12 @@ package lt.baltictalents.stoteliutinklas.config;
 
 import java.sql.SQLException;
 
+import Shell.Shell;
 
 //import org.springframework.boot.SpringApplication;
 //import org.springframework.boot.autoconfigure.SpringBootApplication;
 //import org.springframework.context.annotation.ComponentScan;
 
-import kodas.*;
 
 //@SpringBootApplication
 //@ComponentScan(
@@ -20,8 +20,7 @@ public class Application {
 
 
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
-    		
-		
+    			
     	Shell shell = new Shell();
     	
     	shell.ShellStart();
