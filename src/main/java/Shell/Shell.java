@@ -1,14 +1,30 @@
-package kodas;
+package Shell;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import Database.Database;
+import File_Reading.TxtReader;
+import Functions.AllStationsInArea;
+import Functions.AllStationsInCircle;
+import Functions.BusNrToStops;
+import Functions.CoordinatesToStops;
+import Functions.FindNearestStotele;
+import Functions.IntersectionsOfRoutes;
+import Functions.NameToStops;
+import Functions.StationsWithMostRoutes;
+import Input.Input;
+import Input.InputGUI;
+import lt.baltictalents.stoteliutinklas.data.beans.Route;
 import lt.baltictalents.stoteliutinklas.data.beans.Station;
 import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class Shell {
     @SuppressWarnings("static-access")
-	public void ShellStart() {
+	public void ShellStart() throws SQLException, ClassNotFoundException {
 		String LongLine = "=========================================";
     	String nl = System.getProperty("line.separator");
     	
@@ -27,7 +43,7 @@ public class Shell {
   
     	
     	List<Station> fromJAVA = db.getStoteles();
-    	List<Station> fromDB = db.getStoteles();
+    //	List<Station> fromDB = db.getStoteles();
     	List<Station> fromTXT = txtr.readtxt();
     	
     	int ReadFrom = gui.ReadFrom();
@@ -395,7 +411,30 @@ public class Shell {
     		//gui.v3Test();
     		//gui.test();
     		
-    		System.out.println(System.getProperty("user.dir"));
+
+    		Database db1 = new Database();
+    		Connection conn = null;
+
+    		try {
+    			conn = db1.prepareDatabase("testinimas2.db");
+
+    			List<Route> routes = db1.getRoutes(conn);
+    			System.out.println(Arrays.toString(routes.toArray()));
+
+    			List<Station> stations = db1.getStations(conn);
+    			Station testStation = stations.get(0);
+    			System.out.println(testStation.getName() + " " + testStation.getLatitude() + " "
+    					+ testStation.getLongtitute() + " " + Arrays.toString(testStation.getRoutes()));
+    			;
+
+    		} catch (SQLException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		} finally {
+    			if (conn != null) {
+    				conn.close();
+    			}
+    		}
     		
     	
     	}

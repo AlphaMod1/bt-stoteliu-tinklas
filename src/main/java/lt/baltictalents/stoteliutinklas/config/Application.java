@@ -1,16 +1,14 @@
 
 package lt.baltictalents.stoteliutinklas.config;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.SQLException;
+
+import Shell.Shell;
 
 //import org.springframework.boot.SpringApplication;
 //import org.springframework.boot.autoconfigure.SpringBootApplication;
 //import org.springframework.context.annotation.ComponentScan;
 
-import kodas.*;
-import lt.baltictalents.stoteliutinklas.data.beans.Station;
-import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 //@SpringBootApplication
 //@ComponentScan(
@@ -21,8 +19,8 @@ public class Application {
 
 
 
-	public static void main(String[] args) {
-    		
+	public static void main(String[] args) throws SQLException, ClassNotFoundException {
+    			
     	Shell shell = new Shell();
     	
     	shell.ShellStart();

@@ -1,4 +1,4 @@
-package kodas;
+package Input;
 
 import java.util.ArrayList;
 import java.util.List;
