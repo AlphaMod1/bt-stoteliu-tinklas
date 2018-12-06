@@ -167,7 +167,7 @@ public class Input {
 		try{
 			  temp = Integer.parseInt(Ats);
 			  
-			  if(temp < 0 || temp > 9) {
+			  if(temp < 0 || temp > 8) {
 				  System.out.println("Error: Pick a number from 0 - 8");
 			  }
 			  else {break;}
@@ -242,6 +242,9 @@ public class Input {
 				}
 				else if(arr[0].equalsIgnoreCase("IntersectionsOfRoutes") || arr[0].equalsIgnoreCase("IOR")) {
 					temp = 8;
+				}
+				else if(arr[0].equalsIgnoreCase("ChangeReadFrom") || arr[0].equalsIgnoreCase("crf")) {
+					temp = 99;
 				}
 				else if(arr[0].equalsIgnoreCase("mkdb") || arr[0].equalsIgnoreCase("makedb")){
 					temp = 100;

@@ -21,7 +21,7 @@ import File_Reading.TxtReader;
 import lt.baltictalents.stoteliutinklas.data.beans.Route;
 import lt.baltictalents.stoteliutinklas.data.beans.Station;
 
-public class Database {
+public class databaseInitialization {
 
 	public Connection prepareDatabase(String fileName) throws SQLException {
 		try (Stream<Path> paths = Files.walk(Paths.get("src/main/java/Database/"))) {
@@ -29,7 +29,6 @@ public class Database {
 					.filter(name -> name.substring(name.length() - 3).equals(".db")).collect(Collectors.toList());
 
 			if (!dbFileNames.isEmpty()) {
-				System.out.println("The Database already exists");
 
 				String url = "jdbc:sqlite:src/main/java/Database/" + dbFileNames.get(0);
 				Connection connection = DriverManager.getConnection(url);
@@ -38,13 +37,11 @@ public class Database {
 
 				// create new with tables and data
 			} else if (fileName != null && !fileName.trim().equals("")) {
-				System.out.println("Creating new Database: " + fileName);
 
 				String url = "jdbc:sqlite:src/main/java/Database/" + fileName.trim();
 				//Class.forName("org.sqlite.JDBC");
 				Connection connection = DriverManager.getConnection(url);
 
-				System.out.println("Connection to SQLite has been established.");
 
 				createTables(connection); // tables will not be created if they already exist
 
@@ -56,7 +53,6 @@ public class Database {
 					insertStations(connection, station);
 				}
 
-				System.out.println("stoteles.txt written to database!");
 
 				// read autobusai.txt and write to database
 				RouteTxtReader routeReader = new RouteTxtReader();
@@ -66,7 +62,6 @@ public class Database {
 					insertRoute(connection, route);
 				}
 
-				System.out.println("autobusai.txt written to database!");
 
 				return connection;
 			}
@@ -94,7 +89,6 @@ public class Database {
 			System.out.println(e.getMessage());
 		}
 
-		System.out.println("Tables created");
 		System.out.println("Copying data...");
 	}
 
@@ -126,7 +120,6 @@ public class Database {
 			System.out.println(e.getMessage());
 		}
 
-		System.out.println("got routes from database!!");
 
 		return routes;
 	}
@@ -161,7 +154,6 @@ public class Database {
 			System.out.println(e.getMessage());
 		}
 
-		System.out.println("got stations from database!!");
 
 		return stations;
 	}

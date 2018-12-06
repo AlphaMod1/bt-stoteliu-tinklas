@@ -19,7 +19,7 @@ public class Application {
 
 
 
-	public static void main(String[] args) throws SQLException, ClassNotFoundException {
+	public static void main(String[] args) throws SQLException{
     			
     	Shell shell = new Shell();
     	

@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import Database.Database;
+import Database.DatabaseStarter;
+import Database.databaseInitializationStarter;
 import File_Reading.TxtReader;
 import Functions.AllStationsInArea;
 import Functions.AllStationsInCircle;
@@ -24,7 +26,7 @@ import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class Shell {
     @SuppressWarnings("static-access")
-	public void ShellStart() throws SQLException, ClassNotFoundException {
+	public void ShellStart() throws SQLException{
 		String LongLine = "=========================================";
     	String nl = System.getProperty("line.separator");
     	
@@ -40,13 +42,14 @@ public class Shell {
     	InputGUI gui = new InputGUI();
     	TxtReader txtr = new TxtReader(); 
     	HardCodedDb db = new HardCodedDb();
-  
+    	DatabaseStarter dbmaker = new DatabaseStarter();
+    	databaseInitializationStarter Initialization = new databaseInitializationStarter();
     	
     	List<Station> fromJAVA = db.getStoteles();
-    //	List<Station> fromDB = db.getStoteles();
     	List<Station> fromTXT = txtr.readtxt();
+    	List<Station> fromDB = Initialization.start("");
     	
-    	int ReadFrom = gui.ReadFrom();
+    	int ReadFrom = 0;
     	int UseGui = gui.UseNewGui();
     	
     	
@@ -66,7 +69,7 @@ public class Shell {
         		if(ReadFrom == 0) {
         			ASIA.findAllStationsInArea(upperLeftX,upperLeftY,lowerRightX,lowerRightY,fromJAVA);
         		}
-        		else {
+        		else if(ReadFrom == 1) {
         			ASIA.findAllStationsInArea(upperLeftX,upperLeftY,lowerRightX,lowerRightY,fromTXT);
         		}
         	}
@@ -78,7 +81,7 @@ public class Shell {
         		if(ReadFrom == 0) {
             		ASIC.AllStationsInCircle(X, Y, r, fromJAVA);
         		}
-        		else {
+        		else if(ReadFrom == 1) {
             		ASIC.AllStationsInCircle(X, Y, r, fromTXT);
         		}
         	}
@@ -89,7 +92,7 @@ public class Shell {
         		if(ReadFrom == 0) {
             		BNTS.busnrtostops(autobusas, Name, fromJAVA);
         		}
-        		else {
+        		else if(ReadFrom == 1) {
             		BNTS.busnrtostops(autobusas, Name, fromTXT);
         		}
         	}
@@ -100,7 +103,7 @@ public class Shell {
         		if(ReadFrom == 0) {
             		CTS.coordinatesTostops(lonA, latA, fromJAVA);
         		}
-        		else {
+        		else if(ReadFrom == 1) {
             		CTS.coordinatesTostops(lonA, latA, fromTXT);
         		}
 
@@ -112,7 +115,7 @@ public class Shell {
         		if(ReadFrom == 0) {
             		FNS.FindNearestStot(latA,lonA, fromJAVA);
         		}
-        		else {
+        		else if(ReadFrom == 1) {
             		FNS.FindNearestStot(latA,lonA, fromTXT);
         		}
 
@@ -123,7 +126,7 @@ public class Shell {
         		if(ReadFrom == 0) {
             		NTS.nametostops(Name, fromJAVA);
         		}
-        		else {
+        		else if(ReadFrom == 1) {
             		NTS.nametostops(Name, fromTXT);
         		}
         	}
@@ -136,7 +139,7 @@ public class Shell {
         		if(ReadFrom == 0) {
             		SWMR.findStationsWithMostRoutes(uX, uY, lX, lY, fromJAVA);
         		}
-        		else {
+        		else if(ReadFrom == 1) {
             		SWMR.findStationsWithMostRoutes(uX, uY, lX, lY, fromTXT);
         		}
 
@@ -204,7 +207,7 @@ public class Shell {
     					if(ReadFrom == 0) {
         					ASIA.findAllStationsInArea(argumentai[0], argumentai[1], argumentai[2], argumentai[3], fromJAVA);
     					}
-    					else {
+    	        		else if(ReadFrom == 1) {
         					ASIA.findAllStationsInArea(argumentai[0], argumentai[1], argumentai[2], argumentai[3], fromTXT);
     					}
     				}
@@ -231,7 +234,7 @@ public class Shell {
     					if(ReadFrom == 0) {
         					ASIC.AllStationsInCircle(argumentai[1], argumentai[0], argumentai[2], fromJAVA);	
     					}
-    					else {
+    	        		else if(ReadFrom == 1) {
         					ASIC.AllStationsInCircle(argumentai[1], argumentai[0], argumentai[2], fromTXT);
     					}
     				}
@@ -249,7 +252,7 @@ public class Shell {
     							if(ReadFrom == 0) {
     								BNTS.busnrtostops(true, input.GetShellArg()[2], fromJAVA);
     							}
-    							else {
+    			        		else if(ReadFrom == 1) {
     								BNTS.busnrtostops(true, input.GetShellArg()[2], fromTXT);
     							}
     						}
@@ -257,7 +260,7 @@ public class Shell {
     							if(ReadFrom == 0) {
     								BNTS.busnrtostops(false, input.GetShellArg()[2], fromJAVA);
     							}
-    							else {
+    			        		else if(ReadFrom == 1) {
     								BNTS.busnrtostops(false, input.GetShellArg()[2], fromTXT);
     							}
     						}
@@ -290,7 +293,7 @@ public class Shell {
     					if(ReadFrom == 0) {
         					CTS.coordinatesTostops(argumentai[0], argumentai[1], fromJAVA);
     					}
-    					else {
+    	        		else if(ReadFrom == 1) {
         					CTS.coordinatesTostops(argumentai[0], argumentai[1], fromTXT);
     					}
     				}
@@ -316,7 +319,7 @@ public class Shell {
     					if(ReadFrom == 0) {
         					FNS.FindNearestStot(argumentai[0], argumentai[1], fromJAVA);
     					}
-    					else {
+    	        		else if(ReadFrom == 1) {
         					FNS.FindNearestStot(argumentai[0], argumentai[1], fromTXT);
     					}
     				}
@@ -332,7 +335,7 @@ public class Shell {
     					if(ReadFrom == 0) {
         					NTS.nametostops(input.GetShellArgForNTS()[1], fromJAVA);
     					}
-    					else {
+    	        		else if(ReadFrom == 1) {
         					NTS.nametostops(input.GetShellArgForNTS()[1], fromTXT);
     					}
     				}
@@ -357,7 +360,7 @@ public class Shell {
     					if(ReadFrom == 0) {
     						SWMR.findStationsWithMostRoutes(argumentai[1], argumentai[0], argumentai[3], argumentai[2], fromJAVA);
     					}
-    					else {
+    	        		else if(ReadFrom == 1) {
     						SWMR.findStationsWithMostRoutes(argumentai[1], argumentai[0], argumentai[3], argumentai[2], fromTXT);
     					}
     				}
@@ -371,10 +374,37 @@ public class Shell {
     				
     				System.out.println("work in progress");
     			}
+    			else if(select == 99) {
+    			  if(input.GetShellArg().length == 2) {
+      				if(input.GetShellArg()[1].equalsIgnoreCase("java")) {
+    					ReadFrom = 0;
+    					System.out.println("Now reading from HardCodedDb.java");
+    				}
+    				else if(input.GetShellArg()[1].equalsIgnoreCase("txt")) {
+    					ReadFrom = 1;
+    					System.out.println("Now reading from stoteles.txt");
+    				}
+    				else if(input.GetShellArg()[1].equalsIgnoreCase("db")) {
+    					ReadFrom = 2;
+    					System.out.println("Now reading from Database");
+    				}
+    				else {
+    					System.out.println("File not found");
+    				}
+    			  }
+    			  else {
+    				  System.out.println("Sources: 'java','txt','db'");
+    			  }
+    			}
     			else if(select == 100) {
-    				if(input.GetShellArg().length == 2) {
+    				if(input.GetShellArg().length == 2 || input.GetShellArg().length == 3 ) {
     					if(input.GetShellArg()[1].equalsIgnoreCase("-n")) {
-        					
+        					if(input.GetShellArg().length == 3) {
+        			    		dbmaker.start(input.GetShellArg()[2]);
+        					}
+        					else {
+        						dbmaker.start("");
+        					}
         				}
         				else if(input.GetShellArg()[1].equalsIgnoreCase("-d")) {
         					
@@ -384,19 +414,12 @@ public class Shell {
         				}
     				}
     				else if(input.GetShellArg().length == 1) {
-    					
+    					System.out.println("To generate new database -n, if it exists it won't create a new database");
+    					System.out.println("To delete a database -d");
     				}
-    				else {
-    					if(input.GetShellArg()[1].equalsIgnoreCase("-n")) {
-        					
-        				}
-        				else if(input.GetShellArg()[1].equalsIgnoreCase("-d")) {
-        					
-        				}
-        				else {
-        					System.out.println("Error: Invalid arg");
-        				}
-    				}
+    				
+    			}
+    			else if(select == 101) {
     				
     			}
     			else {
@@ -412,29 +435,7 @@ public class Shell {
     		//gui.test();
     		
 
-    		Database db1 = new Database();
-    		Connection conn = null;
 
-    		try {
-    			conn = db1.prepareDatabase("testinimas2.db");
-
-    			List<Route> routes = db1.getRoutes(conn);
-    			System.out.println(Arrays.toString(routes.toArray()));
-
-    			List<Station> stations = db1.getStations(conn);
-    			Station testStation = stations.get(0);
-    			System.out.println(testStation.getName() + " " + testStation.getLatitude() + " "
-    					+ testStation.getLongtitute() + " " + Arrays.toString(testStation.getRoutes()));
-    			;
-
-    		} catch (SQLException e) {
-    			// TODO Auto-generated catch block
-    			e.printStackTrace();
-    		} finally {
-    			if (conn != null) {
-    				conn.close();
-    			}
-    		}
     		
     	
     	}
