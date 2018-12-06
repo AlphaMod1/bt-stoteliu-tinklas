@@ -1,30 +1,26 @@
-package kodas;
-
-import lt.baltictalents.stoteliutinklas.data.beans.Station;
-import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
+package Functions;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import Input.Input;
+import lt.baltictalents.stoteliutinklas.data.beans.Station;
+import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
-
-
-public class CoordinatesToStops {
+public class NameToStops {
 	
-	public List<String> coordinatesTostops(double lonA, double latA, List<Station> readfrom) {
+	public List<String> nametostops(String Name, List<Station> readfrom) {
+		
 		Input input = new Input();
 		HardCodedDb db = new HardCodedDb();
-		boolean found = false;
-		int rastosStotelesMarsrutuKiekis = 0;
 		List<String> Ats = new ArrayList();
 		
+		int rastosStotelesMarsrutuKiekis;
+		boolean found = false;
+		
+		
 		for(int i = 0; i < readfrom.size(); i++) {
-			double tempLat = 0;	
-			double tempLon = 0; 
-			tempLat = Double.parseDouble(readfrom.get(i).getLatitude());
-			tempLon = Double.parseDouble(readfrom.get(i).getLongtitute());
-			if(tempLat == latA && tempLon == lonA) {
-				
+			if(Name.equalsIgnoreCase(readfrom.get(i).getName())) {
 				rastosStotelesMarsrutuKiekis = readfrom.get(i).getRoutes().length;
 				
 				for(int j = 0; j < rastosStotelesMarsrutuKiekis; j++) {
@@ -42,10 +38,10 @@ public class CoordinatesToStops {
 			System.out.println("No stations found");
 			return null;
 		}
-		else {			
+		else {
 			return Ats;
 		}
+		
 	}
 
-	
 }

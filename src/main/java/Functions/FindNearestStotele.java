@@ -1,4 +1,4 @@
-package kodas;
+package Functions;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -28,7 +28,7 @@ public class FindNearestStotele {
 		int index = getSmallest(list);
 		
 		String Ats = readfrom.get(index).getName();
-		System.out.println("Artimiausia stotelë: " + Ats);
+		System.out.println("Artimiausia stotele: " + Ats);
 		//System.out.println(roundas(list[index], 2)+"Km");
 		return Ats;
 		
