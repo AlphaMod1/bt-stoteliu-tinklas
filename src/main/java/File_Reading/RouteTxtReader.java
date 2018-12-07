@@ -31,7 +31,6 @@ public class RouteTxtReader {
 		        for(int i = 0; i < 3; i++) {
 			        data[i] = data[i].replaceAll("\"", "");	
 		        }
-		        
 		        returnas.add(new Route(data[0], data[1], data[2]));
             }   
 

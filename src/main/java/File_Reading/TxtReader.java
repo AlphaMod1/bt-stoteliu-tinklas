@@ -35,6 +35,13 @@ public class TxtReader {
 			        data[i] = data[i].replaceAll("\"", "");	
 		        }
 		        String[] keliai = data[3].split("\\;");
+		        if(keliai.length >= 2) {
+		        for(int j = 1; j < keliai.length; j++) {
+		        		 keliai[j] = keliai[j].substring(1);	 
+		        }
+		        }
+		        data[1] = data[1].substring(1);
+		        data[2] = data[2].substring(1);
 		        returnas.add(new Station(data[0], data[1],data[2],keliai));
             }   
 
