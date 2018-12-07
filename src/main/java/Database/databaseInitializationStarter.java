@@ -12,6 +12,7 @@ import lt.baltictalents.stoteliutinklas.data.beans.Station;
 public class databaseInitializationStarter {
 
 	public List<Station> start(String name) throws SQLException {
+		long start = System.currentTimeMillis();    
 		System.out.println("Loading...");
 		List<Station> stations = new ArrayList<Station>();
 		databaseInitialization db1 = new databaseInitialization();
@@ -37,7 +38,9 @@ public class databaseInitializationStarter {
 				conn.close();
 			}
 		}
-		System.out.println("Finished loading!");
+		long elapsedTime = System.currentTimeMillis() - start;
+		float elapsedTimeSec = elapsedTime/1000F;
+		System.out.println("Finished loading! in " +elapsedTimeSec+" s");
 		return stations;
 	}
 	
