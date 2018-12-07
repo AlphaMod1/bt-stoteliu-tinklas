@@ -72,6 +72,9 @@ public class Shell {
         		else if(ReadFrom == 1) {
         			ASIA.findAllStationsInArea(upperLeftX,upperLeftY,lowerRightX,lowerRightY,fromTXT);
         		}
+        		else if(ReadFrom == 2) {
+        			ASIA.findAllStationsInArea(upperLeftX,upperLeftY,lowerRightX,lowerRightY,fromDB);
+        		}
         	}
         	else if(javafile == 2){
         		double X, Y, r;
@@ -84,6 +87,9 @@ public class Shell {
         		else if(ReadFrom == 1) {
             		ASIC.AllStationsInCircle(X, Y, r, fromTXT);
         		}
+        		else if(ReadFrom == 2) {
+            		ASIC.AllStationsInCircle(X, Y, r, fromDB);
+        		}
         	}
         	else if(javafile == 3){
         		input.GetBusName();
@@ -94,6 +100,9 @@ public class Shell {
         		}
         		else if(ReadFrom == 1) {
             		BNTS.busnrtostops(autobusas, Name, fromTXT);
+        		}
+        		else if(ReadFrom == 2) {
+            		BNTS.busnrtostops(autobusas, Name, fromDB);
         		}
         	}
         	else if(javafile == 4){
@@ -106,6 +115,10 @@ public class Shell {
         		else if(ReadFrom == 1) {
             		CTS.coordinatesTostops(lonA, latA, fromTXT);
         		}
+        		else if(ReadFrom == 2) {
+            		CTS.coordinatesTostops(lonA, latA, fromDB);
+        		}
+
 
         	}
         	else if(javafile == 5){
@@ -118,6 +131,9 @@ public class Shell {
         		else if(ReadFrom == 1) {
             		FNS.FindNearestStot(latA,lonA, fromTXT);
         		}
+        		else if(ReadFrom == 2) {
+            		FNS.FindNearestStot(latA,lonA, fromDB);
+        		}
 
         	}
         	else if(javafile == 6){
@@ -128,6 +144,9 @@ public class Shell {
         		}
         		else if(ReadFrom == 1) {
             		NTS.nametostops(Name, fromTXT);
+        		}
+        		else if(ReadFrom == 2) {
+            		NTS.nametostops(Name, fromDB);
         		}
         	}
         	else if(javafile == 7){
@@ -141,6 +160,9 @@ public class Shell {
         		}
         		else if(ReadFrom == 1) {
             		SWMR.findStationsWithMostRoutes(uX, uY, lX, lY, fromTXT);
+        		}
+        		else if(ReadFrom == 2) {
+            		SWMR.findStationsWithMostRoutes(uX, uY, lX, lY, fromDB);
         		}
 
         	}
@@ -210,6 +232,9 @@ public class Shell {
     	        		else if(ReadFrom == 1) {
         					ASIA.findAllStationsInArea(argumentai[0], argumentai[1], argumentai[2], argumentai[3], fromTXT);
     					}
+    	        		else if(ReadFrom == 2) {
+        					ASIA.findAllStationsInArea(argumentai[0], argumentai[1], argumentai[2], argumentai[3], fromDB);
+    					}
     				}
     				else {
     					System.out.println("Error: Invalid arg");
@@ -237,6 +262,9 @@ public class Shell {
     	        		else if(ReadFrom == 1) {
         					ASIC.AllStationsInCircle(argumentai[1], argumentai[0], argumentai[2], fromTXT);
     					}
+    	        		else if(ReadFrom == 2) {
+        					ASIC.AllStationsInCircle(argumentai[1], argumentai[0], argumentai[2], fromDB);
+    					}
     				}
     				else {
     					System.out.println("Error: Invalid arg");
@@ -255,6 +283,9 @@ public class Shell {
     			        		else if(ReadFrom == 1) {
     								BNTS.busnrtostops(true, input.GetShellArg()[2], fromTXT);
     							}
+    			        		else if(ReadFrom == 2) {
+    								BNTS.busnrtostops(true, input.GetShellArg()[2], fromDB);
+    							}
     						}
     						else {
     							if(ReadFrom == 0) {
@@ -262,6 +293,9 @@ public class Shell {
     							}
     			        		else if(ReadFrom == 1) {
     								BNTS.busnrtostops(false, input.GetShellArg()[2], fromTXT);
+    							}
+    			        		else if(ReadFrom == 2) {
+    								BNTS.busnrtostops(false, input.GetShellArg()[2], fromDB);
     							}
     						}
     					}
@@ -296,6 +330,9 @@ public class Shell {
     	        		else if(ReadFrom == 1) {
         					CTS.coordinatesTostops(argumentai[0], argumentai[1], fromTXT);
     					}
+    	        		else if(ReadFrom == 2) {
+        					CTS.coordinatesTostops(argumentai[0], argumentai[1], fromDB);
+    					}
     				}
     				else {
     					System.out.println("Error: Invalid arg");
@@ -322,6 +359,9 @@ public class Shell {
     	        		else if(ReadFrom == 1) {
         					FNS.FindNearestStot(argumentai[0], argumentai[1], fromTXT);
     					}
+    	        		else if(ReadFrom == 2) {
+        					FNS.FindNearestStot(argumentai[0], argumentai[1], fromDB);
+    					}
     				}
     				else {
     					System.out.println("Error: Invalid arg");
@@ -337,6 +377,9 @@ public class Shell {
     					}
     	        		else if(ReadFrom == 1) {
         					NTS.nametostops(input.GetShellArgForNTS()[1], fromTXT);
+    					}
+    	        		else if(ReadFrom == 2) {
+        					NTS.nametostops(input.GetShellArgForNTS()[1], fromDB);
     					}
     				}
     				else {
@@ -362,6 +405,9 @@ public class Shell {
     					}
     	        		else if(ReadFrom == 1) {
     						SWMR.findStationsWithMostRoutes(argumentai[1], argumentai[0], argumentai[3], argumentai[2], fromTXT);
+    					}
+    	        		else if(ReadFrom == 2) {
+    						SWMR.findStationsWithMostRoutes(argumentai[1], argumentai[0], argumentai[3], argumentai[2], fromDB);
     					}
     				}
     				else {
@@ -407,7 +453,7 @@ public class Shell {
         					}
         				}
         				else if(input.GetShellArg()[1].equalsIgnoreCase("-d")) {
-        					
+        					dbmaker.start("DELETE FILE#0000085");
         				}
         				else {
         					System.out.println("Error: Invalid arg");

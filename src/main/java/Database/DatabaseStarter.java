@@ -13,9 +13,20 @@ public class DatabaseStarter {
 	public void start(String name) throws SQLException {
 		Database db1 = new Database();
 		Connection conn = null;
+		databaseDelete dbdel = new databaseDelete();
+		
+	if(name == "DELETE FILE#0000085") {
+		
+		
+		name = "NewDatabase";
+	
+		dbdel.delDb(name);
+	}
+	else {	
 		if(name == "") {
 			name = "NewDatabase";
 		}
+		
 		try {
 			conn = db1.prepareDatabase(name+".db");
 
@@ -37,5 +48,5 @@ public class DatabaseStarter {
 			}
 		}
 	}
-	
+	}
 }
