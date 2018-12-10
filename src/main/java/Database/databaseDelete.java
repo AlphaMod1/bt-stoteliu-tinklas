@@ -16,7 +16,7 @@ public class databaseDelete {
 		
 		File file = new File(temp);
        
-		//if(file.delete()) kol neveikia, kad niekas nieko nepridarytu!
+		//if(file.delete())
 		if(0 == 1)
         { 
             System.out.println("File deleted successfully"); 
