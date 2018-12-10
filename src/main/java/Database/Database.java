@@ -83,7 +83,7 @@ public class Database {
 				+ "	startStationName text,\n" + "	finalStationName text\n" + ");";
 
 		String stationsTableSql = "CREATE TABLE IF NOT EXISTS stations (\n" + " stationName text,\n"
-				+ "	longitude text,\n" + "	latitude text,\n" + " routes text\n);";
+				+ "	longitude text,\n" + "	latitude text,\n" + " routes text,\n" + " renovationDate text\n" + ");";
 
 		try (Statement stmt = conn.createStatement()) {
 			// create a new table
