@@ -20,6 +20,7 @@ public class HelpDesk {
     	System.out.println("WholeAreaStationsWithMostRoutes || WASWMR"+nl+"Finds stations with most routes"+nl);
     	System.out.println("ChangeReadFrom                  || CRF"+nl+"Changes file that is reading from"+nl);
     	System.out.println("makedb                          || mkdb"+nl+"Generates or deletes a database"+nl);
+    	System.out.println("UpdateDb                        || udb"+nl+"Updates database date"+nl);
     	System.out.println("Help                            || ?"+nl+"Shows all available commands"+nl);
     	System.out.println("Exit                            || Stop"+nl+"Exits the application"+nl);
     	System.out.println(LongLine);

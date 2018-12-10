@@ -9,6 +9,7 @@ import java.util.List;
 
 import lt.baltictalents.stoteliutinklas.Database.Database;
 import lt.baltictalents.stoteliutinklas.Database.DatabaseStarter;
+import lt.baltictalents.stoteliutinklas.Database.UpdateRenovationDateStarter;
 import lt.baltictalents.stoteliutinklas.Database.databaseInitializationStarter;
 import lt.baltictalents.stoteliutinklas.File_Reading.TxtReader;
 import lt.baltictalents.stoteliutinklas.Functions.AllStationsInArea;
@@ -48,6 +49,7 @@ public class Shell {
     	TxtReader txtr = new TxtReader(); 
     	HardCodedDb db = new HardCodedDb();
     	DatabaseStarter dbmaker = new DatabaseStarter();
+    	UpdateRenovationDateStarter udb = new UpdateRenovationDateStarter();
     	databaseInitializationStarter Initialization = new databaseInitializationStarter();
     	
     	List<Station> fromJAVA = db.getStoteles();
@@ -190,10 +192,6 @@ public class Shell {
         	}
         	else {
         		System.out.println("Error: Crash in Input.java");
-        		System.out.println("         /\"*._         _");
-        		System.out.println("      .-*'`    `*-.._.-'/");
-        		System.out.println("    < * )) ERROR ,      ( ");
-        		System.out.println("     `*-._`._(__.--*\"`. \\");
         	}
         	System.out.println();
     		}
@@ -523,7 +521,27 @@ public class Shell {
     				
     			}
     			else if(select == 101) {
-    				
+    				double[] argumentai = {0,0};
+    				if(input.GetShellArg().length == 3) {
+    					try {
+        					
+        					argumentai[0] = Double.parseDouble(input.GetShellArg()[1]);
+        					argumentai[1] = Double.parseDouble(input.GetShellArg()[2]);
+        					
+        					if(ReadFrom == 2) {
+            					udb.start(argumentai[0], argumentai[1]);
+        					}
+        					else {
+        						System.out.println("Use command: crf db");
+        					}
+        					}
+        				catch(NumberFormatException e){
+        					System.out.println("Invalid arg: udb double, double");
+        				}
+    				}
+    				else {
+    					System.out.println("Invalid arg: udb double, double");
+    				}
     			}
     			else {
     				System.out.println("Error");

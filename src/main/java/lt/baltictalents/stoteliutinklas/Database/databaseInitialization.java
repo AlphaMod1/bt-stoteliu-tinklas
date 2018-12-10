@@ -16,8 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import lt.baltictalents.stoteliutinklas.File_Reading.RouteTxtReader;
-import lt.baltictalents.stoteliutinklas.File_Reading.TxtReader;
+import lt.baltictalents.stoteliutinklas.File_Reading.*;
 import lt.baltictalents.stoteliutinklas.data.beans.Route;
 import lt.baltictalents.stoteliutinklas.data.beans.Station;
 
@@ -78,7 +77,7 @@ public class databaseInitialization {
 				+ "	startStationName text,\n" + "	finalStationName text\n" + ");";
 
 		String stationsTableSql = "CREATE TABLE IF NOT EXISTS stations (\n" + " stationName text,\n"
-				+ "	longitude text,\n" + "	latitude text,\n" + " routes text\n);";
+				+ "	longitude text,\n" + "	latitude text,\n" + " routes text,\n" + " renovationDate text\n" + ");";
 
 		try (Statement stmt = conn.createStatement()) {
 			// create a new table
