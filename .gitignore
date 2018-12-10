@@ -10,4 +10,5 @@ build/
 /.settings/
 .project
 .classpath
+
 *.db
