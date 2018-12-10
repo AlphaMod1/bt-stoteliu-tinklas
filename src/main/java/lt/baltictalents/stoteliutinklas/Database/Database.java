@@ -16,8 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import lt.baltictalents.stoteliutinklas.File_Reading.RouteTxtReader;
-import lt.baltictalents.stoteliutinklas.File_Reading.TxtReader;
+import lt.baltictalents.stoteliutinklas.File_Reading.*;
 import lt.baltictalents.stoteliutinklas.data.beans.Route;
 import lt.baltictalents.stoteliutinklas.data.beans.Station;
 
@@ -29,7 +28,7 @@ public class Database {
 					.filter(name -> name.substring(name.length() - 3).equals(".db")).collect(Collectors.toList());
 
 			if (!dbFileNames.isEmpty()) {
-				System.out.println("The Database already exists");
+			//	System.out.println("The Database already exists");
 
 				String url = "jdbc:sqlite:src/main/java/lt/baltictalents/stoteliutinklas/Database/" + dbFileNames.get(0);
 				Connection connection = DriverManager.getConnection(url);
@@ -83,7 +82,7 @@ public class Database {
 				+ "	startStationName text,\n" + "	finalStationName text\n" + ");";
 
 		String stationsTableSql = "CREATE TABLE IF NOT EXISTS stations (\n" + " stationName text,\n"
-				+ "	longitude text,\n" + "	latitude text,\n" + " routes text\n);";
+				+ "	longitude text,\n" + "	latitude text,\n" + " routes text,\n" + " renovationDate text\n" + ");";
 
 		try (Statement stmt = conn.createStatement()) {
 			// create a new table

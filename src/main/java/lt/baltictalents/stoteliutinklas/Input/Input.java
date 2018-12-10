@@ -255,6 +255,9 @@ public class Input {
 				else if(arr[0].equalsIgnoreCase("mkdb") || arr[0].equalsIgnoreCase("makedb")){
 					temp = 100;
 				}
+				else if(arr[0].equalsIgnoreCase("updatedb") || arr[0].equalsIgnoreCase("udb")) {
+					temp = 101;
+				}
 				else {
 					temp = -1;
 				}
