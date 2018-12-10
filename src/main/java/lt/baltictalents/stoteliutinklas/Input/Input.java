@@ -1,4 +1,4 @@
-package Input;
+package lt.baltictalents.stoteliutinklas.Input;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -242,6 +242,12 @@ public class Input {
 				}
 				else if(arr[0].equalsIgnoreCase("IntersectionsOfRoutes") || arr[0].equalsIgnoreCase("IOR")) {
 					temp = 8;
+				}
+				else if(arr[0].equalsIgnoreCase("PavilionsWithinDistance") || arr[0].equalsIgnoreCase("PWD")) {
+					temp = 9;
+				}
+				else if(arr[0].equalsIgnoreCase("WholeAreaStationsWithMostRoutes") || arr[0].equalsIgnoreCase("WASWMR")) {
+					temp = 10;
 				}
 				else if(arr[0].equalsIgnoreCase("ChangeReadFrom") || arr[0].equalsIgnoreCase("crf")) {
 					temp = 99;

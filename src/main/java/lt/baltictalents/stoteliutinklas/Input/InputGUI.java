@@ -1,4 +1,4 @@
-package Input;
+package lt.baltictalents.stoteliutinklas.Input;
 
 import javax.swing.*;
 import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;

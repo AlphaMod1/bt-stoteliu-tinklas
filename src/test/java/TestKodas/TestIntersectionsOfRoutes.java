@@ -2,13 +2,12 @@ package TestKodas;
 
 import org.junit.Test;
 
-import Functions.IntersectionsOfRoutes;
-
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import lt.baltictalents.stoteliutinklas.Functions.IntersectionsOfRoutes;
 import lt.baltictalents.stoteliutinklas.data.beans.Station;
 import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 

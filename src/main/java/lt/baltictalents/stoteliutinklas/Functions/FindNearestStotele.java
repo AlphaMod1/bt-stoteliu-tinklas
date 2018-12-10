@@ -1,4 +1,4 @@
-package Functions;
+package lt.baltictalents.stoteliutinklas.Functions;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

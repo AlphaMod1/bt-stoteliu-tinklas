@@ -1,4 +1,4 @@
-package Database;
+package lt.baltictalents.stoteliutinklas.Database;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,32 +16,35 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import File_Reading.RouteTxtReader;
-import File_Reading.TxtReader;
+import lt.baltictalents.stoteliutinklas.File_Reading.RouteTxtReader;
+import lt.baltictalents.stoteliutinklas.File_Reading.TxtReader;
 import lt.baltictalents.stoteliutinklas.data.beans.Route;
 import lt.baltictalents.stoteliutinklas.data.beans.Station;
 
-public class databaseInitialization {
+public class Database {
 
 	public Connection prepareDatabase(String fileName) throws SQLException {
-		try (Stream<Path> paths = Files.walk(Paths.get("src/main/java/Database/"))) {
+		try (Stream<Path> paths = Files.walk(Paths.get("src/main/java/lt/baltictalents/stoteliutinklas/Database/"))) {
 			List<String> dbFileNames = paths.filter(Files::isRegularFile).map(file -> file.getFileName().toString())
 					.filter(name -> name.substring(name.length() - 3).equals(".db")).collect(Collectors.toList());
 
 			if (!dbFileNames.isEmpty()) {
+				System.out.println("The Database already exists");
 
-				String url = "jdbc:sqlite:src/main/java/Database/" + dbFileNames.get(0);
+				String url = "jdbc:sqlite:src/main/java/lt/baltictalents/stoteliutinklas/Database/" + dbFileNames.get(0);
 				Connection connection = DriverManager.getConnection(url);
 
 				return connection;
 
 				// create new with tables and data
 			} else if (fileName != null && !fileName.trim().equals("")) {
+				System.out.println("Creating new Database: " + fileName);
 
-				String url = "jdbc:sqlite:src/main/java/Database/" + fileName.trim();
+				String url = "jdbc:sqlite:src/main/java/lt/baltictalents/stoteliutinklas/Database/" + fileName.trim();
 				//Class.forName("org.sqlite.JDBC");
 				Connection connection = DriverManager.getConnection(url);
 
+				System.out.println("Connection to SQLite has been established.");
 
 				createTables(connection); // tables will not be created if they already exist
 
@@ -53,6 +56,7 @@ public class databaseInitialization {
 					insertStations(connection, station);
 				}
 
+				System.out.println("stoteles.txt written to database!");
 
 				// read autobusai.txt and write to database
 				RouteTxtReader routeReader = new RouteTxtReader();
@@ -62,6 +66,7 @@ public class databaseInitialization {
 					insertRoute(connection, route);
 				}
 
+				System.out.println("autobusai.txt written to database!");
 
 				return connection;
 			}
@@ -89,6 +94,7 @@ public class databaseInitialization {
 			System.out.println(e.getMessage());
 		}
 
+		System.out.println("Tables created");
 		System.out.println("Copying data...");
 	}
 
@@ -120,6 +126,7 @@ public class databaseInitialization {
 			System.out.println(e.getMessage());
 		}
 
+		System.out.println("got routes from database!!");
 
 		return routes;
 	}
@@ -154,6 +161,7 @@ public class databaseInitialization {
 			System.out.println(e.getMessage());
 		}
 
+		System.out.println("got stations from database!!");
 
 		return stations;
 	}

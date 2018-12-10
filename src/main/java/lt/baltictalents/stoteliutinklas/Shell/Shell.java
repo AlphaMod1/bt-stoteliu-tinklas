@@ -1,34 +1,36 @@
-package Shell;
+package lt.baltictalents.stoteliutinklas.Shell;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import Database.Database;
-import Database.DatabaseStarter;
-import Database.databaseInitializationStarter;
-import File_Reading.TxtReader;
-import Functions.AllStationsInArea;
-import Functions.AllStationsInCircle;
-import Functions.BusNrToStops;
-import Functions.CoordinatesToStops;
-import Functions.FindNearestStotele;
-import Functions.IntersectionsOfRoutes;
-import Functions.NameToStops;
-import Functions.StationsWithMostRoutes;
-import Input.Input;
-import Input.InputGUI;
+import lt.baltictalents.stoteliutinklas.Database.Database;
+import lt.baltictalents.stoteliutinklas.Database.DatabaseStarter;
+import lt.baltictalents.stoteliutinklas.Database.databaseInitializationStarter;
+import lt.baltictalents.stoteliutinklas.File_Reading.TxtReader;
+import lt.baltictalents.stoteliutinklas.Functions.AllStationsInArea;
+import lt.baltictalents.stoteliutinklas.Functions.AllStationsInCircle;
+import lt.baltictalents.stoteliutinklas.Functions.BusNrToStops;
+import lt.baltictalents.stoteliutinklas.Functions.CoordinatesToStops;
+import lt.baltictalents.stoteliutinklas.Functions.FindNearestStotele;
+import lt.baltictalents.stoteliutinklas.Functions.IntersectionsOfRoutes;
+import lt.baltictalents.stoteliutinklas.Functions.NameToStops;
+import lt.baltictalents.stoteliutinklas.Functions.PavilionsWithinDistance;
+import lt.baltictalents.stoteliutinklas.Functions.StationsWithMostRoutes;
+import lt.baltictalents.stoteliutinklas.Functions.WholeAreaStationsWithMostRoutes;
+import lt.baltictalents.stoteliutinklas.Input.HelpDesk;
+import lt.baltictalents.stoteliutinklas.Input.Input;
+import lt.baltictalents.stoteliutinklas.Input.InputGUI;
 import lt.baltictalents.stoteliutinklas.data.beans.Route;
 import lt.baltictalents.stoteliutinklas.data.beans.Station;
 import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class Shell {
     @SuppressWarnings("static-access")
-	public void ShellStart() throws SQLException{
-		String LongLine = "=========================================";
-    	String nl = System.getProperty("line.separator");
+	public void ShellStart() throws SQLException, IOException, InterruptedException{
     	
     	AllStationsInArea ASIA = new AllStationsInArea();
     	StationsWithMostRoutes SWMR = new StationsWithMostRoutes();
@@ -38,6 +40,9 @@ public class Shell {
     	BusNrToStops BNTS = new BusNrToStops(); 
     	AllStationsInCircle ASIC = new AllStationsInCircle();
     	IntersectionsOfRoutes IOR = new IntersectionsOfRoutes();
+    	PavilionsWithinDistance pwd = new PavilionsWithinDistance();
+    	WholeAreaStationsWithMostRoutes waswmr = new WholeAreaStationsWithMostRoutes();
+    	HelpDesk helpDesk = new HelpDesk();
     	Input input = new Input();
     	InputGUI gui = new InputGUI();
     	TxtReader txtr = new TxtReader(); 
@@ -209,9 +214,9 @@ public class Shell {
     				System.out.println("Type 'help' or '?' for help");
     			}
     			else if(select == 0) {
-    				System.out.println(nl+LongLine+nl+"Commands:"+nl+LongLine+nl+"AllStationsInArea(ASIA),"+nl+"StationsWithMostRoutes(SWMR),"+nl+
-    						"FindNearestStotele(FNS),"+nl+"CoordinatesToStops(CTS),"+nl+"NameToStops(NTS), BusNrToStops(BNTS),"+nl+
-    						"AllStationsInCircle(ASIC)"+nl+LongLine+nl);
+    				
+    				helpDesk.start();
+    				
     			}
     			else if(select == 1) {
     				
@@ -317,12 +322,7 @@ public class Shell {
     				if(input.GetShellArg().length == 3) {
     					try {
     					for(int i = 1; i < 3; i++) {
-    						argumentai[i-1] = Double.parseDouble(input.GetShellArg()[i]);	 
-    					}
-    					}
-    					catch(NumberFormatException e){
-    						System.out.println("Error: Invalid arg");
-        					System.out.println(input.GetShellArg()[0]+" double, double");
+    						argumentai[i-1] = Double.parseDouble(input.GetShellArg()[i]);	
     					}
     					if(ReadFrom == 0) {
         					CTS.coordinatesTostops(argumentai[0], argumentai[1], fromJAVA);
@@ -333,6 +333,12 @@ public class Shell {
     	        		else if(ReadFrom == 2) {
         					CTS.coordinatesTostops(argumentai[0], argumentai[1], fromDB);
     					}
+    					}
+    					catch(NumberFormatException e){
+    						System.out.println("Error: Invalid arg");
+        					System.out.println(input.GetShellArg()[0]+" double, double");
+    					}
+
     				}
     				else {
     					System.out.println("Error: Invalid arg");
@@ -420,6 +426,57 @@ public class Shell {
     				
     				System.out.println("work in progress");
     			}
+    			else if(select == 9) {
+    				double argumentai = 0;
+    				if(input.GetShellArg().length == 2) {
+    					try {
+        					
+        					argumentai = Double.parseDouble(input.GetShellArg()[1]);	
+        					
+        					if(ReadFrom == 0) {
+            					pwd.findPavlionsWithinDistance(argumentai, fromJAVA);
+        					}
+        	        		else if(ReadFrom == 1) {
+        	        			pwd.findPavlionsWithinDistance(argumentai, fromTXT);
+        					}
+        	        		else if(ReadFrom == 2) {
+        	        			pwd.findPavlionsWithinDistance(argumentai, fromDB);
+        					}
+        					}
+        					catch(NumberFormatException e){
+        						System.out.println("Invalid arg: pwd double");
+        					}
+    				}
+    				else {
+    					System.out.println("Invalid arg: pwd double");
+    				}
+    				
+    			}
+    			else if(select == 10) {
+    				int argumentai = 0;
+    				if(input.GetShellArg().length == 2) {
+    					try {
+        					
+        					argumentai = Integer.parseInt(input.GetShellArg()[1]);	
+        					
+        					if(ReadFrom == 0) {
+            					waswmr.findWholeAreaStationsWithMostRoutes(argumentai, fromJAVA);
+        					}
+        	        		else if(ReadFrom == 1) {
+        	        			waswmr.findWholeAreaStationsWithMostRoutes(argumentai, fromTXT);
+        					}
+        	        		else if(ReadFrom == 2) {
+        	        			waswmr.findWholeAreaStationsWithMostRoutes(argumentai, fromDB);
+        					}
+        					}
+        					catch(NumberFormatException e){
+        						System.out.println("Invalid arg: WASWMR int");
+        					}
+    				}
+    				else {
+    					System.out.println("Invalid arg: WASWMR int");
+    				}
+    			}
     			else if(select == 99) {
     			  if(input.GetShellArg().length == 2) {
       				if(input.GetShellArg()[1].equalsIgnoreCase("java")) {
@@ -481,8 +538,12 @@ public class Shell {
     		//gui.test();
     		
 
-
-    		
+//    		String anim= "|/-\\";
+//            for (int x =0 ; x < 100 ; x++) {
+//                String data = "\r" + anim.charAt(x % anim.length()) + " " + x;
+//                System.out.write(data.getBytes());
+//                Thread.sleep(100);
+//            }
     	
     	}
     	else {

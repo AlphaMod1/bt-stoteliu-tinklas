@@ -1,4 +1,4 @@
-package File_Reading;
+package lt.baltictalents.stoteliutinklas.File_Reading;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -1,9 +1,9 @@
-package Functions;
+package lt.baltictalents.stoteliutinklas.Functions;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Input.Input;
+import lt.baltictalents.stoteliutinklas.Input.Input;
 import lt.baltictalents.stoteliutinklas.data.beans.Station;
 import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 

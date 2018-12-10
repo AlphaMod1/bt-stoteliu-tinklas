@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import Functions.AllStationsInCircle;
+import lt.baltictalents.stoteliutinklas.Functions.AllStationsInCircle;
 import lt.baltictalents.stoteliutinklas.data.beans.Station;
 import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
