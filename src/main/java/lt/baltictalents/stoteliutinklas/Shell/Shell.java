@@ -1,35 +1,36 @@
-package Shell;
+package lt.baltictalents.stoteliutinklas.Shell;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import Database.Database;
-import Database.DatabaseStarter;
-import Database.databaseInitializationStarter;
-import File_Reading.TxtReader;
-import Functions.AllStationsInArea;
-import Functions.AllStationsInCircle;
-import Functions.BusNrToStops;
-import Functions.CoordinatesToStops;
-import Functions.FindNearestStotele;
-import Functions.IntersectionsOfRoutes;
-import Functions.NameToStops;
-import Functions.PavilionsWithinDistance;
-import Functions.StationsWithMostRoutes;
-import Functions.WholeAreaStationsWithMostRoutes;
-import Input.HelpDesk;
-import Input.Input;
-import Input.InputGUI;
+import lt.baltictalents.stoteliutinklas.Database.Database;
+import lt.baltictalents.stoteliutinklas.Database.DatabaseStarter;
+import lt.baltictalents.stoteliutinklas.Database.databaseInitializationStarter;
+import lt.baltictalents.stoteliutinklas.File_Reading.TxtReader;
+import lt.baltictalents.stoteliutinklas.Functions.AllStationsInArea;
+import lt.baltictalents.stoteliutinklas.Functions.AllStationsInCircle;
+import lt.baltictalents.stoteliutinklas.Functions.BusNrToStops;
+import lt.baltictalents.stoteliutinklas.Functions.CoordinatesToStops;
+import lt.baltictalents.stoteliutinklas.Functions.FindNearestStotele;
+import lt.baltictalents.stoteliutinklas.Functions.IntersectionsOfRoutes;
+import lt.baltictalents.stoteliutinklas.Functions.NameToStops;
+import lt.baltictalents.stoteliutinklas.Functions.PavilionsWithinDistance;
+import lt.baltictalents.stoteliutinklas.Functions.StationsWithMostRoutes;
+import lt.baltictalents.stoteliutinklas.Functions.WholeAreaStationsWithMostRoutes;
+import lt.baltictalents.stoteliutinklas.Input.HelpDesk;
+import lt.baltictalents.stoteliutinklas.Input.Input;
+import lt.baltictalents.stoteliutinklas.Input.InputGUI;
 import lt.baltictalents.stoteliutinklas.data.beans.Route;
 import lt.baltictalents.stoteliutinklas.data.beans.Station;
 import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class Shell {
     @SuppressWarnings("static-access")
-	public void ShellStart() throws SQLException{
+	public void ShellStart() throws SQLException, IOException, InterruptedException{
     	
     	AllStationsInArea ASIA = new AllStationsInArea();
     	StationsWithMostRoutes SWMR = new StationsWithMostRoutes();
@@ -537,8 +538,12 @@ public class Shell {
     		//gui.test();
     		
 
-
-    		
+//    		String anim= "|/-\\";
+//            for (int x =0 ; x < 100 ; x++) {
+//                String data = "\r" + anim.charAt(x % anim.length()) + " " + x;
+//                System.out.write(data.getBytes());
+//                Thread.sleep(100);
+//            }
     	
     	}
     	else {

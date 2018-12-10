@@ -1,4 +1,4 @@
-package Database;
+package lt.baltictalents.stoteliutinklas.Database;
 
 import java.io.File;
 import java.sql.SQLException;

@@ -2,7 +2,7 @@ package TestKodas;
 
 import org.junit.Test;
 
-import Functions.WholeAreaStationsWithMostRoutes;
+import lt.baltictalents.stoteliutinklas.Functions.WholeAreaStationsWithMostRoutes;
 import lt.baltictalents.stoteliutinklas.data.beans.Station;
 import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 

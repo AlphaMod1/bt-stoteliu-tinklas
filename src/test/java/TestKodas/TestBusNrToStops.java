@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import Functions.BusNrToStops;
+import lt.baltictalents.stoteliutinklas.Functions.BusNrToStops;
 import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class TestBusNrToStops {

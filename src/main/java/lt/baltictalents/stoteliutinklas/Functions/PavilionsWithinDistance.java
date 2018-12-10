@@ -1,4 +1,4 @@
-package Functions;
+package lt.baltictalents.stoteliutinklas.Functions;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,15 +23,15 @@ public class PavilionsWithinDistance {
 		
 //		List<Station> allStations = new ArrayList<Station>();
 //		allStations.add(new Station("Vaikų ligoninė", "25.280511", "54.755512",
-//				new String[]{"Autobusas 2G: Stotis - Santariškės", "Autobusas 48 Santariškės - Laisvės pr. - Šeškinė", "Autobusas 75 Pilaitė - S. Stanevičiaus g. - Santariškės"}));
+//				new String[]{"Autobusas 2G: Stotis - Santari�?kės", "Autobusas 48 Santari�?kės - Laisvės pr. - Še�?kinė", "Autobusas 75 Pilaitė - S. Stanevičiaus g. - Santari�?kės"}));
 //		allStations.add(new Station("Juozo Tumo-Vaižganto st.", "25.2692819", "54.6895504",
-//				new String[]{"Autobusas 22 Lazdynai - Oslo g. - Centras", "Autobusas 3G: Oro uostas - Fabijoniškės", "Autobusas 73 Justiniškės - Centras - Vilkpėdė", "Troleibusas 4: Žemieji Paneriai - Antakalnis", "Troleibusas 4: Žemieji Paneriai - Antakalnis", "Troleibusas 10: Naujininkai - Saulėtekis", "Troleibusas 17: Naujininkai - Žirmūnai"}));
+//				new String[]{"Autobusas 22 Lazdynai - Oslo g. - Centras", "Autobusas 3G: Oro uostas - Fabijoni�?kės", "Autobusas 73 Justini�?kės - Centras - Vilkpėdė", "Troleibusas 4: Žemieji Paneriai - Antakalnis", "Troleibusas 4: Žemieji Paneriai - Antakalnis", "Troleibusas 10: Naujininkai - Saulėtekis", "Troleibusas 17: Naujininkai - Žirmūnai"}));
 //		allStations.add(new Station("Vaikų ligoninė", "25.280511", "54.755512",
-//				new String[]{"Autobusas 2G: Stotis - Santariškės", "Autobusas 48 Santariškės - Laisvės pr. - Šeškinė", "Autobusas 75 Pilaitė - S. Stanevičiaus g. - Santariškės"}));
+//				new String[]{"Autobusas 2G: Stotis - Santari�?kės", "Autobusas 48 Santari�?kės - Laisvės pr. - Še�?kinė", "Autobusas 75 Pilaitė - S. Stanevičiaus g. - Santari�?kės"}));
 //		allStations.add(new Station("Vaikų ligoninė", "25.280286", "54.752843",
-//				new String[]{"Autobusas 2G: Stotis - Santariškės", "Autobusas 48 Santariškės - Laisvės pr. - Šeškinė", "Autobusas 75 Pilaitė - S. Stanevičiaus g. - Santariškės"}));
+//				new String[]{"Autobusas 2G: Stotis - Santari�?kės", "Autobusas 48 Santari�?kės - Laisvės pr. - Še�?kinė", "Autobusas 75 Pilaitė - S. Stanevičiaus g. - Santari�?kės"}));
 //		allStations.add(new Station("Juozo Tumo-Vaižganto st.", "25.2692819", "54.6895504",
-//				new String[]{"Autobusas 22 Lazdynai - Oslo g. - Centras", "Autobusas 3G: Oro uostas - Fabijoniškės", "Autobusas 73 Justiniškės - Centras - Vilkpėdė", "Troleibusas 4: Žemieji Paneriai - Antakalnis", "Troleibusas 4: Žemieji Paneriai - Antakalnis", "Troleibusas 10: Naujininkai - Saulėtekis", "Troleibusas 17: Naujininkai - Žirmūnai"}));
+//				new String[]{"Autobusas 22 Lazdynai - Oslo g. - Centras", "Autobusas 3G: Oro uostas - Fabijoni�?kės", "Autobusas 73 Justini�?kės - Centras - Vilkpėdė", "Troleibusas 4: Žemieji Paneriai - Antakalnis", "Troleibusas 4: Žemieji Paneriai - Antakalnis", "Troleibusas 10: Naujininkai - Saulėtekis", "Troleibusas 17: Naujininkai - Žirmūnai"}));
 				
 		allStations.sort(comparatorByName);
 		List<Station> pavilionsWithSameName = new ArrayList<Station>();

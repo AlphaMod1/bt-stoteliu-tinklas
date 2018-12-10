@@ -1,9 +1,10 @@
 
 package lt.baltictalents.stoteliutinklas.config;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
-import Shell.Shell;
+import lt.baltictalents.stoteliutinklas.Shell.Shell;
 
 //import org.springframework.boot.SpringApplication;
 //import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,7 +20,7 @@ public class Application {
 
 
 
-	public static void main(String[] args) throws SQLException{
+	public static void main(String[] args) throws SQLException, IOException, InterruptedException{
     			
     	Shell shell = new Shell();
     	

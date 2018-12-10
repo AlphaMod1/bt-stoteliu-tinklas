@@ -1,4 +1,4 @@
-package Input;
+package lt.baltictalents.stoteliutinklas.Input;
 
 public class HelpDesk {
 
